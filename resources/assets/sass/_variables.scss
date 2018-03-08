@@ -1,0 +1,47 @@
+// Body
+$body-bg: #EFF6FA;
+
+// Typography
+// $font-family-sans-serif: "Raleway", sans-serif;
+// 修改了默认的字体
+$font-family-sans-serif: Hiragino Sans GB,
+"Hiragino Sans GB",
+Helvetica,
+"Microsoft YaHei",
+Arial,
+sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+$text-color: #525252;
+
+// Navbar
+$navbar-default-bg: #fff;
+
+// Buttons
+$btn-default-color: $text-color;
+
+// Panels
+$panel-default-heading-bg: #fff;
+
+// 给按钮添加了一个 btn-white
+$white: #fff;
+
+$theme-colors: ( "white": $white);
+
+// 定义 container 的默认尺寸
+$container-max-widths: ( sm: 540px,
+md: 720px,
+lg: 960px,
+xl: 1260px);
+
+$pagination-color : #343a40;
+// $pagination-bg:                     $white !default;
+// $pagination-border-width:           $border-width !default;
+// $pagination-border-color:           $gray-300 !default;
+// $pagination-focus-box-shadow:       $input-btn-focus-box-shadow !default;
+$pagination-hover-color : #28a745;
+// $pagination-hover-bg:               $gray-200 !default;
+// $pagination-hover-border-color:     $gray-300 !default;
+$pagination-active-color : #fff;
+$pagination-active-bg : #28a745;
+$pagination-active-border-color : #28a745 !default;

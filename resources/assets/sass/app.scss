@@ -1,0 +1,56 @@
+// Variables
+@import "variables";
+
+@import '~bootstrap/scss/bootstrap';
+
+@import '~font-awesome/scss/font-awesome';
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+
+
+
+/* Header */
+
+.navbar-laravel {
+    border-color: #e7e7e7;
+    background-color: #fff;
+    box-shadow: 0px 1px 11px 2px rgba(42, 42, 42, 0.1);
+    border-top: 2px solid #00b5ad;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    .active {
+        background-color: #EFF6FA;
+    }
+}
+
+
+#logo {
+    margin-right: 200px;
+}
+
+
+
+
+/* Footer */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px;
+    /* Vertically center the text there */
+    background-color: #3C4245;
+}

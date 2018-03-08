@@ -1,0 +1,74 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Post;
+use BroQiang\LaravelMarkdown\Markdown;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class PostsController extends Controller
+{
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show');
+    }
+
+    public function index(Post $post, Request $request, Markdown $markdown)
+    {
+        $posts = $post->withList($request)->withArchive($request->year)->paginate(10);
+
+        foreach ($posts as $post) {
+            $post->excerpt = $markdown->convertMarkdownToHtml($post->excerpt);
+        }
+
+        return view('posts.index', compact('posts'));
+    }
+
+    public function show(Post $post, Markdown $markdown)
+    {
+        $post->body = $markdown->convertMarkdownToHtml($post->body);
+
+        return view('posts.show', compact('post'));
+    }
+
+    /**
+     * 关注
+     * @param  Post $post [description]
+     * @return [type] [description]
+     */
+    public function follow(Post $post)
+    {
+        $post->follows()->attach(Auth::id());
+
+        return back()->with('message', '关注成功');
+    }
+
+    /**
+     * 取消关注
+     * @param  Post $post [description]
+     * @return [type] [description]
+     */
+    public function unfollow(Post $post)
+    {
+        $rs = $post->follows()->detach(Auth::id());
+
+        return back()->with('message', '已经取消关注');
+    }
+
+    public function comment(Post $post, Request $request)
+    {
+        $this->validate($request, [
+            'content' => 'required|string|min:5|max:128',
+        ]);
+
+        $comment            = $request->all();
+        $comment['post_id'] = $post->id;
+        $comment['user_id'] = Auth::id();
+
+        $post->comments()->create($comment);
+
+        return back()->with('success', '评论成功 ！');
+    }
+}
