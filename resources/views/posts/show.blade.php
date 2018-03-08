@@ -21,9 +21,9 @@
                             <i class="fa fa-clock-o"></i>
                             {{ $post->created_at }}
                         </small>
-                        <small class="pull-right">
+                        {{-- <small class="pull-right">
                             访问量：<span class="badge badge-light text-muted">{{ $post->view_count }}</span>
-                        </small>
+                        </small> --}}
                     </h5>
                     <hr>
                     <article class="markdown-body">
