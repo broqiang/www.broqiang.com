@@ -1,5 +1,5 @@
 {
-    "name": "broqiang/blog",
+    "name": "broqiang/laravel-blog",
     "description": "Laravel 开发的个人博客",
     "keywords": ["broqiang", "blog", "laravel"],
     "license": "MIT",
