@@ -18,12 +18,16 @@
                     内容管理
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('admins.skills.index') }}">
+                            <i class="fa fa-tags mr-2 text-info"></i>技能分类
+                        </a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('admins.posts.index') }}">
-                            <i class="fa fa-file-o mr-2 text-info"></i>博客列表
+                            <i class="fa fa-file mr-2 text-info"></i>博客列表
                         </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">
-                            <i class="fa fa-bell-o mr-2 text-info"></i>回复列表
+                            <i class="fa fa-bell mr-2 text-info"></i>回复列表
                         </a>
                     </div>
                 </li>

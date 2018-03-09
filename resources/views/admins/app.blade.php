@@ -20,7 +20,7 @@
 
 <body>
     <div id="app" class="{{ route_class() }}-page">
-        @include('layouts._admins_header')
+        @include('admins._admins_header')
     
         <main class="py-4">
             

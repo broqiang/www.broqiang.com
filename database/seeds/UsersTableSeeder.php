@@ -20,20 +20,11 @@ class UsersTableSeeder extends Seeder
     {
         return [
             [
-                'name'       => 'BroQiang',
+                'name'       => env('ADMIN_USER_NAME', 'BroQiang'),
                 'avatar'     => 'http://image.broqiang.com//broqiang/logo320.png',
-                'email'      => 'broqiang@qq.com',
+                'email'      => env('ADMIN_USER_EMAIL', 'broqiang@qq.com'),
                 'password'   => bcrypt('123123'),
                 'is_admin'   => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'name'       => 'bro',
-                'avatar'     => 'http://image.broqiang.com//broqiang/logo320.png',
-                'email'      => 'broqiang@yeah.net',
-                'password'   => bcrypt('123123'),
-                'is_admin'   => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],

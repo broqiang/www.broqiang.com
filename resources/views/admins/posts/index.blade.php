@@ -1,4 +1,8 @@
-@extends('layouts.admin') @section('title', '博客列表') @section('content')
+@extends('admins.app') 
+
+@section('title', '博客列表') 
+
+@section('content')
 <div class="container-fluid">
     <div class="card text-muted">
         <div class="card-header bg-white">

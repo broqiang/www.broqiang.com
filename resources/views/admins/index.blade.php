@@ -1,4 +1,4 @@
-@extends('layouts.admin') 
+@extends('admins.app') 
 
 @section('title','首页') 
 

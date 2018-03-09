@@ -17,8 +17,8 @@ class CreateSkillsTable extends Migration
             $table->increments('id');
             $table->string('name',64);
             $table->string('description');
-            $table->tinyInteger('sort')->default(100);
-            $table->integer('post_count')->default(0)->commont('skills下的博客数量');
+            $table->unsignedTinyInteger('sort')->default(100);
+            $table->unsignedInteger('post_count')->default(0)->commont('skills下的博客数量');
             $table->timestamps();
         });
     }
