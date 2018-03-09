@@ -17,12 +17,12 @@
                         <a href="{{ route('users.show',$post->user->id) }}" class=" font-italic text-info">
                             {{ $post->user->name }}
                         </a>
-                        <small class="font-italic text-muted mx-3">
+                        <small class="font-italic text-muted mx-3" title="发布时间：{{ $post->created_at }}">
                             <i class="fa fa-clock-o"></i>
-                            {{ $post->created_at }}
+                            {{ $post->created_at->diffForHumans() }}
                         </small>
                         <small class="pull-right">
-                            访问量：<span class="badge badge-light text-muted mr-3">{{ $post->view_count }}</span>
+                            访问量：<span class="badge badge-light text-muted mr-3">{{ $post->visitCounts() }}</span>
                             评论数：<span class="badge badge-light text-muted">{{ $post->comment_count }}</span>
                             关注数：<span class="badge badge-light text-muted">{{ $post->follow_count }}</span>
                         </small>

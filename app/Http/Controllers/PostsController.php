@@ -25,10 +25,10 @@ class PostsController extends Controller
         return view('posts.index', compact('posts'));
     }
 
-    public function show(Post $post, Markdown $markdown)
+    public function show(Post $post, Markdown $markdown, Request $request)
     {
-        
-        
+        $post->visit($request);
+
         $post->body = $markdown->convertMarkdownToHtml($post->body);
 
         return view('posts.show', compact('post'));
@@ -55,7 +55,7 @@ class PostsController extends Controller
     public function unfollow(Post $post)
     {
         $rs = $post->follows()->detach(Auth::id());
-        if($post->follow_count > 1) {
+        if ($post->follow_count > 1) {
             $post->decrement('follow_count', 1);
         }
 

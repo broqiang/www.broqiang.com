@@ -7,6 +7,7 @@ use App\Models\Skill;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class Post extends Model
@@ -79,5 +80,36 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class)
             ->orderBy('comments.updated_at', 'desc');
+    }
+
+    /**
+     * 添加博客文章的访问记录
+     * @param  Request $request [description]
+     * @return [type] [description]
+     */
+    public function visit(Request $request)
+    {
+        $visit = [];
+        if (Auth::check()) {
+            $visit['user_id'] = Auth::id();
+        }
+
+        $visit['ip'] = $request->getClientIp();
+
+        return $this->visits()->create($visit);
+    }
+
+    /**
+     * 获取访问数
+     * @return [type] [description]
+     */
+    public function visitCounts()
+    {
+        return $this->hasMany(Visit::class)->count();
+    }
+
+    public function visits()
+    {
+        return $this->hasMany(Visit::class);
     }
 }

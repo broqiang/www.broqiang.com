@@ -44,7 +44,7 @@
                                     <td>{{ $post->skill->name }}</td>
                                     <td>{{ $post->comment_count }}</td>
                                     <td>{{ $post->follow_count }}</td>
-                                    <td>{{ $post->view_count }}</td>
+                                    <td>{{ $post->visitCounts() }}</td>
                                     <td title="{{ $post->created_at }}">{{ $post->created_at->diffForHumans() }}</td>
                                     <td>
                                         <a class="btn btn-info btn-sm m-1" href="{{ route('admins.posts.edit', $post->id) }}">
