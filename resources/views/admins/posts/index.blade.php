@@ -46,7 +46,11 @@
                                             {{ $post->user->name }}
                                         </a>
                                     </td>
-                                    <td>{{ $post->skill->name }}</td>
+                                    <td>
+                                        <a class="text-info" href="{{ route('admins.skills.show', $post->skill->id) }}">
+                                            {{ $post->skill->name }}
+                                        </a>
+                                    </td>
                                     <td>
                                         <a class="text-info" href="{{ route('admins.comments.index') }}?post_id={{ $post->id }}">
                                             {{ $post->comment_count }}

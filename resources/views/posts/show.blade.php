@@ -22,9 +22,9 @@
                             {{ $post->created_at->diffForHumans() }}
                         </small>
                         <small class="pull-right">
-                            访问量：<span class="badge badge-light text-muted mr-3">{{ $post->visitCounts() }}</span>
-                            评论数：<span class="badge badge-light text-muted">{{ $post->comment_count }}</span>
-                            关注数：<span class="badge badge-light text-muted">{{ $post->follow_count }}</span>
+                            访问：<span class="badge badge-light text-muted mr-3">{{ $post->visitCounts() }}</span>
+                            评论：<span class="badge badge-light text-muted">{{ $post->comment_count }}</span>
+                            关注：<span class="badge badge-light text-muted">{{ $post->follow_count }}</span>
                         </small>
                     </h5>
                     <hr>

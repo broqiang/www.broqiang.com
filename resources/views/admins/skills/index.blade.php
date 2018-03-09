@@ -33,8 +33,8 @@
                             @foreach($skills as $skill)
                                 <tr>
                                     <th scope="row">{{ $skill->id }}</th>
-                                    <td class="text-truncate" style="max-width: 150px;" title="{{ $skill->name }}">
-                                        <a class="text-muted" href="{{ route('skills.show', $skill->id) }}" target="_blank">
+                                    <td>
+                                        <a class="text-info" href="{{ route('admins.skills.show', $skill->id) }}">
                                             {{ $skill->name }}
                                         </a>
                                     </td>

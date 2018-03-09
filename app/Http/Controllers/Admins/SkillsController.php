@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SkillRequest;
+use App\Models\Post;
 use App\Models\Skill;
 
 class SkillsController extends Controller
@@ -17,6 +18,16 @@ class SkillsController extends Controller
     {
         return view('admins.skills.index')
             ->with('skills', $skill->orderBy('sort', 'desc')->paginate(10));
+    }
+
+    public function show(Skill $skill, Post $post)
+    {
+        $posts = $post->with(['User', 'Skill', 'Visits'])
+            ->orderBy('created_at', 'desc')
+            ->where('skill_id', $skill->id)
+            ->paginate(10);
+
+        return view('admins.posts.index', compact('posts'));
     }
 
     /**

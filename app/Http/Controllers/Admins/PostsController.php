@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use App\Models\Skill;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
@@ -15,10 +16,15 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Post $post)
+    public function index(Post $post, Request $request)
     {
-        return view('admins.posts.index')
-            ->with('posts', $post->orderBy('created_at', 'desc')->paginate(10));
+        if ($request->has('skill_id')) {
+            $post->where('skill_id', $request->$request);
+        }
+
+        $posts = $post->with(['User', 'Skill', 'Visits'])->orderBy('created_at', 'desc')->paginate(10);
+
+        return view('admins.posts.index', compact('posts'));
     }
 
     public function edit(Post $post)

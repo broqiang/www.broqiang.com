@@ -9,10 +9,7 @@ Route::resource('posts', 'PostsController', [
 ]);
 
 // 技能分类管理
-Route::resource('skills', 'SkillsController', [
-    'names'  => 'admins.skills',
-    'except' => ['show'],
-]);
+Route::resource('skills', 'SkillsController', ['names' => 'admins.skills']);
 
 // 评论管理
 Route::resource('comments', 'CommentsController', [
