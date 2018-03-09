@@ -19,12 +19,16 @@
                             </p>
                             <div class="dropdown-divider"></div>
                             <p class="card-text">
-                                评论总数：
+                                评论：
                                 <a href="{{ route('admins.comments.index') }}" class="text-info" target="_blank">{{ $item['value']['comments'] }}</a>
                             </p>
                             <div class="dropdown-divider"></div>
                             <p class="card-text">
-                                总访问量：{{ $item['value']['visits'] }}
+                                访问：{{ $item['value']['visits'] }}
+                            </p>
+                            <div class="dropdown-divider"></div>
+                            <p class="card-text">
+                                关注：{{ $item['value']['follows'] }}
                             </p>
                         </div>
                     </div>

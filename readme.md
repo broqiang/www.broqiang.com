@@ -34,10 +34,14 @@ cd /www
 
 __方法一 直接通过 composer 安装__
 
-> 采用此步骤需要已经配置好了 composer
+> 注意：
+> 
+> - 此方法需要已经配置好了 composer
+> 
+> - 此方法安装无法更新，有新的版本只能重新安装
 
 ```bash
-composer create-project broqiang/laravel-blog broqiang.com
+composer create-project broqiang/laravel-blog broqiang.com "1.0.*"
 ```
 
 __方法二 通过 github 直接下载代码__
@@ -50,6 +54,7 @@ git clone https://github.com/BroQiang/www.broqiang.com.git
 
 ```bash
 sudo chmod -R 777 storage
+sudo chmod -R 777 public/uploads
 ```
 
 #### 配置配置文件
@@ -120,6 +125,7 @@ __初始化数据库__
 php artisan migrate
 
 # 生成管理员用户，用户名和邮箱是 .env 中配置的，如果不配置的话默认是 BroQiang broqiang@qq.com
+# 只有管理员才可以操作后台
 php artisan db:seed --class=UsersTableSeeder
 ```
 
@@ -131,7 +137,7 @@ __如果需要初始化测试数据执行下面命令__
 php artisan migrate --seed
 ```
 
-> 暂时没有开发修改管理员的功能，需要手动连接到数据库，将 users 表中的 is_admin 改为 1 才可以看到后台
+> 暂时没有开发修改管理员的功能，默认db:seed 安装的用户就是管理员，需要手动连接到数据库，将 users 表中的 is_admin 改为 1 才可以看到后台
 
 ## 配置 Nginx
 
