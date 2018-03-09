@@ -24,7 +24,7 @@
                                 <th scope="col">标题</th>
                                 <th scope="col">作者</th>
                                 <th scope="col">所属技能</th>
-                                <th scope="col">回复</th>
+                                <th scope="col">评论</th>
                                 <th scope="col">关注</th>
                                 <th scope="col">PV</th>
                                 <th scope="col">发布时间</th>
@@ -36,13 +36,22 @@
                                 <tr>
                                     <th scope="row">{{ $post->id }}</th>
                                     <td class="text-truncate" style="max-width: 150px;" title="{{ $post->title }}">
-                                        <a class="text-muted" href="{{ route('posts.show', $post->id) }}" target="_blank">
+                                        <a class="text-info" href="{{ route('posts.show', $post->id) }}" target="_blank">
                                             {{ $post->title }}
                                         </a>
                                     </td>
-                                    <td><i class="fa fa-user mr-1 text-info"></i>{{ $post->user->name }}</td>
+                                    <td>
+                                        <i class="fa fa-user mr-1 text-info"></i>
+                                        <a class="text-info" href="{{ route('users.show', $post->user->id) }}">
+                                            {{ $post->user->name }}
+                                        </a>
+                                    </td>
                                     <td>{{ $post->skill->name }}</td>
-                                    <td>{{ $post->comment_count }}</td>
+                                    <td>
+                                        <a class="text-info" href="{{ route('admins.comments.index') }}?post_id={{ $post->id }}">
+                                            {{ $post->comment_count }}
+                                        </a>
+                                    </td>
                                     <td>{{ $post->follow_count }}</td>
                                     <td>{{ $post->visitCounts() }}</td>
                                     <td title="{{ $post->created_at }}">{{ $post->created_at->diffForHumans() }}</td>

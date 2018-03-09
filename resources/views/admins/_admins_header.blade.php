@@ -15,7 +15,7 @@
                 
                 <li class="nav-item dropdown mx-2">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    内容管理
+                    博客管理
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('admins.skills.index') }}">
@@ -23,11 +23,11 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('admins.posts.index') }}">
-                            <i class="fa fa-file mr-2 text-info"></i>博客列表
+                            <i class="fa fa-file mr-2 text-info"></i>博客管理
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
-                            <i class="fa fa-bell mr-2 text-info"></i>回复列表
+                        <a class="dropdown-item" href="{{ route('admins.comments.index') }}">
+                            <i class="fa fa-bell mr-2 text-info"></i>评论管理
                         </a>
                     </div>
                 </li>

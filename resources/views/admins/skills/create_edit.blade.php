@@ -1,7 +1,6 @@
 @extends('admins.app') 
 
 @section('css')
-    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     {!! editormd_css() !!}
 @stop
 

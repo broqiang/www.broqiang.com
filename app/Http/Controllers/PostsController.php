@@ -55,7 +55,7 @@ class PostsController extends Controller
     public function unfollow(Post $post)
     {
         $rs = $post->follows()->detach(Auth::id());
-        if ($post->follow_count > 1) {
+        if ($post->follow_count > 0) {
             $post->decrement('follow_count', 1);
         }
 

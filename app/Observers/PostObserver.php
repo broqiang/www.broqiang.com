@@ -15,7 +15,7 @@ class PostObserver
     {
         $skill = $post->skill;
 
-        if ($skill->post_count > 1) {
+        if ($skill->post_count > 0) {
             $skill->decrement('post_count', 1);
         }
     }
