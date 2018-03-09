@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth')->except('index', 'show');
@@ -41,6 +40,7 @@ class PostsController extends Controller
     public function follow(Post $post)
     {
         $post->follows()->attach(Auth::id());
+        $post->increment('follow_count', 1);
 
         return back()->with('message', '关注成功');
     }
@@ -53,6 +53,9 @@ class PostsController extends Controller
     public function unfollow(Post $post)
     {
         $rs = $post->follows()->detach(Auth::id());
+        if($post->follow_count > 1) {
+            $post->decrement('follow_count', 1);
+        }
 
         return back()->with('message', '已经取消关注');
     }

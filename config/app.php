@@ -160,8 +160,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\PostProvider::class,
 
+        // 自定义的 Provider
+        App\Providers\PostProvider::class,
+        App\Providers\ObserverProvider::class,
     ],
 
     /*
