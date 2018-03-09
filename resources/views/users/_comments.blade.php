@@ -1,6 +1,6 @@
 <div class="card mb-2">
     <div class="card-header bg-white">
-        <a href="{{ route('users.comments', Auth::id()) }}" class="btn btn-info btn-sm pull-right">查看全部</a>
+        <a href="{{ route('users.comments', $user->id) }}" class="btn btn-info btn-sm pull-right">查看全部</a>
         <h4 class="text-muted">评论的文章</h4>
     </div>
     @if(count($user->commentsPreview))

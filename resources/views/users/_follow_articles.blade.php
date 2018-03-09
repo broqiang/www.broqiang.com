@@ -1,6 +1,6 @@
 <div class="card mb-5">
     <div class="card-header bg-white">
-        <a href="{{ route('users.follows', Auth::id()) }}" class="btn btn-info btn-sm pull-right">查看全部</a>
+        <a href="{{ route('users.follows', $user->id) }}" class="btn btn-info btn-sm pull-right">查看全部</a>
         <h4 class="text-muted">关注的文章</h4>
     </div>
     @if(count($user->follows))
