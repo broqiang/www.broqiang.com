@@ -19,3 +19,7 @@ Route::post('posts/{post}/comment','PostsController@comment')->name('posts.comme
 
 /** 技能分类 */
 Route::resource('skills', 'SkillsController', ['only' => ['show']]);
+
+/** 消息通知 */
+Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
+

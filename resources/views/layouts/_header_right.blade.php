@@ -6,9 +6,11 @@
     @else
     
     <li class="mr-3">
-        <a class="nav-link secondary" href="#">
-            <i class="fa fa-bell"></i>
-            <span class="badge badge-light">0</span>
+        <a class="nav-link" href="{{ route('notifications.index') }}">
+            <span class="badge badge-light {{ Auth::user()->notification_count > 0 ? 'text-danger' : 'text-muted' }}" title="消息通知提醒">
+                <i class="fa fa-bell"></i>
+                {{ Auth::user()->notification_count }}
+            </span>
         </a>
     </li>
 

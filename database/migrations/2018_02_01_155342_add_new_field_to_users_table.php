@@ -14,7 +14,7 @@ class AddNewFieldToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('avatar')->default('');
+            $table->string('avatar')->default('http://image.broqiang.com/avatar_default_php.png');
             $table->string('realname',64)->default('');
             $table->string('introduction')->default('');
             $table->string('tel',64)->default('');

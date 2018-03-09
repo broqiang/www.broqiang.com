@@ -2,6 +2,7 @@
 namespace App\Observers;
 
 use App\Models\Comment;
+use App\Notifications\PostCommented;
 use Illuminate\Support\Carbon;
 
 class CommentObserver
@@ -15,6 +16,9 @@ class CommentObserver
 
         // 更新文章的最后更新时间
         $post->update(['updated_at' => Carbon::now()]);
+
+        // 发送通知
+        $post->user->notify(new PostCommented($comment));
     }
 
     public function deleted(Comment $comment)

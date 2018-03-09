@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCommentsTable extends Migration
+class AddNotificationCountToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('post_id');
-            $table->integer('user_id');
-            $table->string('content',1024);
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedInteger('notification_count')->default(0)->comment('未读消息数量');
         });
     }
 
@@ -29,6 +25,8 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('notification_count');
+        });
     }
 }

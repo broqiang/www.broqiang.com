@@ -65,7 +65,7 @@ class PostsController extends Controller
     public function comment(Post $post, Request $request)
     {
         $this->validate($request, [
-            'content' => 'required|string|min:5|max:128',
+            'content' => 'required|string|min:5|max:256',
         ]);
 
         $comment            = $request->all();
