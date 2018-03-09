@@ -5,13 +5,6 @@ use App\Models\Post;
 
 class PostObserver
 {
-    public function retrieved(Post $post)
-    {
-        if (url()->current() != route('admins.posts.index')) {
-            $post->increment('view_count', 1);
-        }
-    }
-
     public function created(Post $post)
     {
         // 每次发布博客，所属分类下的博客+1

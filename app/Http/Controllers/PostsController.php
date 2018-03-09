@@ -16,7 +16,7 @@ class PostsController extends Controller
 
     public function index(Post $post, Request $request, Markdown $markdown)
     {
-        $posts = $post->withList($request)->withArchive($request->year)->paginate(10);
+        $posts = $post->withOrder($request->order)->withArchive($request->year)->paginate(10);
 
         foreach ($posts as $post) {
             $post->excerpt = $markdown->convertMarkdownToHtml($post->excerpt);
@@ -27,6 +27,8 @@ class PostsController extends Controller
 
     public function show(Post $post, Markdown $markdown)
     {
+        
+        
         $post->body = $markdown->convertMarkdownToHtml($post->body);
 
         return view('posts.show', compact('post'));

@@ -13,7 +13,7 @@
                             <a class="nav-link text-dark {{ active_class(( ! if_query('order', 'reply') )) }}" href="{{ Request::url() }}?order=default">最新发布</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark {{ active_class(( if_query('order', 'reply') )) }}" href="{{ Request::url() }}?order=reply">最后回复</a>
+                            <a class="nav-link text-dark {{ active_class(( if_query('order', 'reply') )) }}" href="{{ Request::url() }}?order=reply">最后活跃</a>
                         </li>
                     </ul>
                     <div class="input-group my-3">

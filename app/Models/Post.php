@@ -24,13 +24,6 @@ class Post extends Model
             ->get();
     }
 
-    public function scopeWithList($query, Request $request)
-    {
-        $query = $this->withOrder($request->order);
-
-        return $query->with(['User', 'Skill']);
-    }
-
     public function scopeWithArchive($query, $year)
     {
         if ($year) {
@@ -51,7 +44,8 @@ class Post extends Model
                 $query = $this->recentReleased();
                 break;
         }
-        return $query;
+
+        return $query->with(['User', 'Skill']);
     }
 
     public function scopeRecentReplied($query)

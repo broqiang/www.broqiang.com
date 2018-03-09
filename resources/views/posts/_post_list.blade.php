@@ -9,9 +9,9 @@
                 <a href="{{ route('users.show',$post->user->id) }}" class="font-italic text-info">
                     {{ $post->user->name }}
                 </a>
-                <small class="font-italic text-muted mx-3">
+                <small class="font-italic text-muted mx-3" title="发布时间">
                     <i class="fa fa-clock-o"></i>
-                    {{ $post->created_at }}
+                    {{ $post->created_at->diffForHumans() }}
                 </small>
             </h5>
             <hr>
