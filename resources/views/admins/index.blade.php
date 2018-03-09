@@ -5,78 +5,32 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-6 my-3">
-            <div class="card border-info text-muted">
-                <div class="card-body">
-                    <h5 class="card-title">帖子统计</h5>
-                    <p class="card-text">xxxxxxxxxxxxxxxxxxxxxxx</p>
-                    <a href="#" class="btn btn-info">查看详情</a>
+        @if(isset($list) && count($list))
+            @foreach($list as $item)
+                <div class="col-md-6 my-3">
+                    <div class="card border-info text-muted">
+                        <div class="card-header bg-info text-light">
+                            {{ $item['name'] }}统计
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                文章数量：
+                                <a href="{{ route('admins.posts.index') }}" class="text-info" target="_blank">{{ $item['value']['posts'] }}</a>
+                            </p>
+                            <div class="dropdown-divider"></div>
+                            <p class="card-text">
+                                评论总数：
+                                <a href="{{ route('admins.comments.index') }}" class="text-info" target="_blank">{{ $item['value']['comments'] }}</a>
+                            </p>
+                            <div class="dropdown-divider"></div>
+                            <p class="card-text">
+                                总访问量：{{ $item['value']['visits'] }}
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-6 my-3">
-            <div class="card border-info text-muted">
-                <div class="card-body">
-                    <h5 class="card-title">回复统计</h5>
-                    <p class="card-text">xxxxxxxxxxxxxxxxxxxxxxx</p>
-                    <a href="#" class="btn btn-info">查看详情</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 my-3">
-            <div class="card border-info text-muted">
-                <div class="card-body">
-                    <h5 class="card-title">回复统计</h5>
-                    <p class="card-text">xxxxxxxxxxxxxxxxxxxxxxx</p>
-                    <a href="#" class="btn btn-info">查看详情</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 my-3">
-            <div class="card border-info text-muted">
-                <div class="card-body">
-                    <h5 class="card-title">回复统计</h5>
-                    <p class="card-text">xxxxxxxxxxxxxxxxxxxxxxx</p>
-                    <a href="#" class="btn btn-info">查看详情</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 my-3">
-            <div class="card border-info text-muted">
-                <div class="card-body">
-                    <h5 class="card-title">回复统计</h5>
-                    <p class="card-text">xxxxxxxxxxxxxxxxxxxxxxx</p>
-                    <a href="#" class="btn btn-info">查看详情</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 my-3">
-            <div class="card border-info text-muted">
-                <div class="card-body">
-                    <h5 class="card-title">回复统计</h5>
-                    <p class="card-text">xxxxxxxxxxxxxxxxxxxxxxx</p>
-                    <a href="#" class="btn btn-info">查看详情</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 my-3">
-            <div class="card border-info text-muted">
-                <div class="card-body">
-                    <h5 class="card-title">回复统计</h5>
-                    <p class="card-text">xxxxxxxxxxxxxxxxxxxxxxx</p>
-                    <a href="#" class="btn btn-info">查看详情</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 my-3">
-            <div class="card border-info text-muted">
-                <div class="card-body">
-                    <h5 class="card-title">回复统计</h5>
-                    <p class="card-text">xxxxxxxxxxxxxxxxxxxxxxx</p>
-                    <a href="#" class="btn btn-info">查看详情</a>
-                </div>
-            </div>
-        </div>
+            @endforeach
+        @endif
     </div>
 </div>
 @endsection
