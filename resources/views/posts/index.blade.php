@@ -17,9 +17,9 @@
                         </li>
                     </ul>
                     <div class="input-group my-3">
-                        <input type="text" class="form-control is-valid" placeholder="搜索功能还没有实现！！！！！" >
+                        <input type="text" class="form-control" placeholder="搜索功能还没有实现！！！！！" >
                         <div class="input-group-append">
-                            <button class="btn btn-outline-success" type="button">
+                            <button class="btn btn-outline-info" type="button">
                                 <i class="fa fa-search"></i> 搜索
                             </button>
                         </div>

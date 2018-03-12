@@ -1,5 +1,17 @@
-<div class="card mb-3">
-    <div class="card-header bg-transparent">
+<div class="card mb-3 border-info">
+    <div class="card-header bg-transparent border-info">
+        <h5 class="text-muted text-center">公告</h5>
+    </div>
+    <div class="card-body">
+        <article class="text-muted">
+            博客正式从原来的 Github Page 迁移到这里，原本的内容可以通过 
+            <a class="text-info" href="http://broqiang.github.io" target="_blank">broqiang.github.io</a> 访问
+        </article>
+    </div>
+</div>
+
+<div class="card border-info mb-3">
+    <div class="card-header bg-transparent border-info">
         <h5 class="text-muted text-center">归档</h5>
     </div>
     @if(count($archives))
