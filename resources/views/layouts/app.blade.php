@@ -16,6 +16,8 @@
     
     @yield('css')
 
+    @include('layouts._baidutongji')
+
 </head>
 
 <body>
