@@ -16,8 +16,6 @@
     
     @yield('css')
 
-    @include('layouts._baidutongji')
-
 </head>
 
 <body>
@@ -38,6 +36,8 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     @yield('script')
+
+    @include('layouts._baidutongji')
 </body>
 
 </html>
