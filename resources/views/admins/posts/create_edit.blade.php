@@ -103,6 +103,6 @@
 
 </script>
 
-{!! editormd_js() !!}
+{!! editormd_js(isset($post)) !!}
 
 @stop

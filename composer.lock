@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c583cc7a20d176695b3045125bc11877",
+    "content-hash": "3e8b082dc7f270f8df0714283ab5417a",
     "packages": [
         {
             "name": "broqiang/laravel-image",
@@ -59,16 +59,16 @@
         },
         {
             "name": "broqiang/laravel-markdown",
-            "version": "1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BroQiang/laravel-markdown.git",
-                "reference": "6a7b44908a0192bb74d986add03c9fab4bda8635"
+                "reference": "05e43888cbdc1f36b3b211764046231fce04d211"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/BroQiang/laravel-markdown/6a7b44908a0192bb74d986add03c9fab4bda8635.zip",
-                "reference": "6a7b44908a0192bb74d986add03c9fab4bda8635",
+                "url": "https://files.phpcomposer.com/files/BroQiang/laravel-markdown/05e43888cbdc1f36b3b211764046231fce04d211.zip",
+                "reference": "05e43888cbdc1f36b3b211764046231fce04d211",
                 "shasum": ""
             },
             "require": {
@@ -111,7 +111,7 @@
                 "laravel",
                 "markdown"
             ],
-            "time": "2018-03-07T15:49:17+00:00"
+            "time": "2018-03-12T08:50:51+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
