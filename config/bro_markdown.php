@@ -13,8 +13,8 @@ return [
 
     // 预览时的 js
     'markdown_preview_js'  => [
-        'vendor/markdown.show/js/highlight.js',
-        'vendor/editormd/lib/prettify.min.js',
+        'https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js',
+        'https://cdn.bootcss.com/prettify/r298/prettify.min.js',
     ],
 
     /**
