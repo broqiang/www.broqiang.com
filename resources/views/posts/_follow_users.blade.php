@@ -25,7 +25,7 @@
             @foreach($post->follows as $user)
                 <span class="badge badge-pill badge-light">
                     <a href="{{ route('users.show',$user->id) }}">
-                    <img src="{{ $user->avatar ?: 'http://image.broqiang.com//broqiang/empty-white.png' }}" width="33px" height="33px">
+                    {{-- <img src="{{ $user->avatar ?: 'http://image.broqiang.com//broqiang/empty-white.png' }}" width="33px" height="33px"> --}}
                     </a>
                 </span>
             @endforeach
