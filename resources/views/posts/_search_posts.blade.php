@@ -42,7 +42,7 @@ $('#posts_search').typeahead({
         var item = JSON.parse(obj);
         var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
         return item.name.replace(new RegExp('(' + query + ')', 'ig'), function($1, match) {
-            return '<strong class="text-primary font-weight-bold font-italic bg-white">' + match + '</strong>'
+            return '<strong class="text-success font-weight-bold font-italic">' + match + '</strong>'
         })
     },
     // 选中后触发的动作
