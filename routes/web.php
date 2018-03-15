@@ -13,9 +13,9 @@ Route::get('users/{user}/comments', 'UsersController@comments')->name('users.com
 
 /** 博客路由，前台只提供列表和文章显示，所以暂时只配置这两个方法 */
 Route::resource('posts', 'PostsController', ['only' => ['index', 'show']]);
-Route::post('posts/{post}/follow','PostsController@follow')->name('posts.follow'); // 关注
-Route::post('posts/{post}/unfollow','PostsController@unfollow')->name('posts.unfollow'); // 关注
-Route::post('posts/{post}/comment','PostsController@comment')->name('posts.comment'); // 关注
+Route::post('posts/{post}/follow', 'PostsController@follow')->name('posts.follow'); // 关注
+Route::post('posts/{post}/unfollow', 'PostsController@unfollow')->name('posts.unfollow'); // 关注
+Route::post('posts/{post}/comment', 'PostsController@comment')->name('posts.comment'); // 关注
 
 /** 技能分类 */
 Route::resource('skills', 'SkillsController', ['only' => ['show']]);
@@ -23,3 +23,5 @@ Route::resource('skills', 'SkillsController', ['only' => ['show']]);
 /** 消息通知 */
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
 
+/** 搜索路由 */
+Route::post('search/posts', 'SearchController@posts')->name('search.posts');

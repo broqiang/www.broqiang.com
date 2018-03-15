@@ -2,6 +2,14 @@
 
 @section('title',isset($skills) ? $skills->name : '博客列表')
 
+@section('css')
+<style>
+        .typeahead {
+            width: 100%;
+        }
+    </style>
+@stop
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -17,11 +25,11 @@
                         </li>
                     </ul>
                     <div class="input-group my-3">
-                        <input type="text" class="form-control" placeholder="搜索功能还没有实现！！！！！" >
+                        <input type="text" id="posts_search" class="form-control" placeholder="输入要搜索的内容，至少要两个字符" >
                         <div class="input-group-append">
-                            <button class="btn btn-outline-info" type="button">
-                                <i class="fa fa-search"></i> 搜索
-                            </button>
+                            <div class="input-group-text text-info bg-white">
+                                <i class="fa fa-search"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -37,4 +45,9 @@
             @include('posts._sidebar')
         </div>
     </div>        
+@stop
+
+@section('script')
+    {{-- 搜索博客文章 --}}
+    @include('posts._search_posts');
 @stop
