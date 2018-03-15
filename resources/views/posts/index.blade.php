@@ -2,14 +2,6 @@
 
 @section('title',isset($skills) ? $skills->name : '博客列表')
 
-@section('css')
-<style>
-        .typeahead {
-            width: 100%;
-        }
-    </style>
-@stop
-
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
