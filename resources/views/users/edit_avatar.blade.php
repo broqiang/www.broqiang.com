@@ -14,7 +14,7 @@
                     <h4 class="my-3">上传头像</h4>
                 </div>
                 <div class="card-body">
-                    {{-- <img class="rounded mx-auto my-2 img-thumbnail" src="{{ $user->avatar ?: 'http://image.broqiang.com//broqiang/empty-white.png' }}" alt="avatar"> --}}
+                    <img class="rounded mx-auto my-2 img-thumbnail" src="{{ $user->avatar ?: 'https://image.broqiang.com//broqiang/empty-white.png' }}" alt="avatar">
                     <div class="dropdown-divider my-3"></div>
                     <form method="POST" action="{{ route('users.update',$user->id) }}" accept-charset="UTF-8" enctype="multipart/form-data">
                         @csrf

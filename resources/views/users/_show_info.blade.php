@@ -1,6 +1,6 @@
 <div class="card mb-2">
     <div align="center">
-        {{-- <img class="rounded img-thumbnail my-5 mx-auto" src="{{ $user->avatar ?: 'http://image.broqiang.com//broqiang/empty-white.png' }}" alt="avatar"> --}}
+        <img class="rounded img-thumbnail my-5 mx-auto" src="{{ $user->avatar ?: 'https://image.broqiang.com//broqiang/empty-white.png' }}" alt="avatar">
     </div>
     
     <div class="card-body">

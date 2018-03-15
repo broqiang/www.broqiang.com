@@ -17,7 +17,7 @@
     <li class="nav-item dropdown">
         <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
             <span class="mr-1">
-                {{-- <img src="{{ Auth::user()->avatar ?: 'http://image.broqiang.com//broqiang/empty-white.png' }}" width="22px" height="22px"> --}}
+                <img src="{{ Auth::user()->avatar ?: 'https://image.broqiang.com//broqiang/empty-white.png' }}" width="22px" height="22px">
             </span>
             <span>
                 {{ Auth::user()->name }}
