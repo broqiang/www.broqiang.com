@@ -42,15 +42,11 @@
                                     <td>{{ $user->comments->count() }}</td>
                                     <td title="{{ $user->created_at }}">{{ $user->created_at->diffForHumans() }}</td>
                                     <td>
-                                        <a class="btn btn-info btn-sm m-1" href="{{ route('admins.users.edit', $user->id) }}">
-                                            <i class="fa fa-edit"></i> 编辑
-                                        </a>
                                         <button class="btn btn-danger btn-sm m-1 js-btn-del" data-id="12">
                                             <i class="fa fa-trash-o"></i> 删除
                                             <form class="d-none" action="{{ route('admins.users.destroy', $user->id) }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
-                                                1111
                                             </form>
                                         </button>
                                     </td>

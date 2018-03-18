@@ -68,7 +68,6 @@
                                             <form class="d-none" action="{{ route('admins.posts.destroy', $post->id) }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
-                                                1111
                                             </form>
                                         </button>
                                     </td>
