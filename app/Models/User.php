@@ -10,10 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class User extends Authenticatable
 {
     use Notifiable {
-        notify as protected laravelNotify;
-    }
-    
-    public function notify($instance)
+        notify as laravelNotify;}function notify($instance)
     {
         // 如果要通知的人是当前用户，就不必通知了！
         if ($this->id == Auth::id()) {
@@ -41,7 +38,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function posts()
+    function posts()
     {
         return $this->hasMany(Post::class);
     }
@@ -50,7 +47,7 @@ class User extends Authenticatable
      * 用户关注的文章
      * @return [type] [description]
      */
-    public function follows()
+    function follows()
     {
         return $this->belongsToMany(Post::class, 'follows', 'user_id', 'post_id')
             ->orderBy('posts.created_at', 'desc')
@@ -58,25 +55,25 @@ class User extends Authenticatable
             ->withPivot('created_at');
     }
 
-    public function followsAll()
+    function followsAll()
     {
         return $this->belongsToMany(Post::class, 'follows', 'user_id', 'post_id')
             ->orderBy('posts.created_at', 'desc');
     }
 
-    public function commentsPreview()
+    function commentsPreview()
     {
         return $this->hasMany(Comment::class)
             ->limit(5)
             ->orderBy('comments.updated_at', 'desc');
     }
 
-    public function comments()
+    function comments()
     {
         return $this->hasMany(Comment::class)->orderBy('comments.updated_at', 'desc');
     }
 
-    public function markAsRead()
+    function markAsRead()
     {
         $this->notification_count = 0;
         $this->save();

@@ -16,3 +16,8 @@ Route::resource('comments', 'CommentsController', [
     'names'  => 'admins.comments',
     'except' => ['show', 'create', 'store'],
 ]);
+
+Route::resource('users', 'UsersController', [
+    'names'  => 'admins.users',
+    'except' => ['show', 'create', 'store'],
+]);

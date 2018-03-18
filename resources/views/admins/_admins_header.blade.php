@@ -36,8 +36,8 @@
                     用户管理
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="javascript: void(0);">
-                            <i class="fa fa-user-o mr-2 text-info"></i>暂时没有此功能
+                        <a class="dropdown-item" href="{{ route('admins.users.index') }}">
+                            <i class="fa fa-user-o mr-2 text-info"></i>用户列表
                         </a>
                     </div>
                 </li>
