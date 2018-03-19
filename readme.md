@@ -1,24 +1,6 @@
 # Bro Qiang 博客
 
-Laravel 5.6 开发的单人博客，1.0 版本完成。
-
-此版本框架是用的 Laravel 5.6，前端使用的是 Bootstrap 4.0，基本全部由 PHP 实现，除了 插件自带的特效，只用了极少的 js，定位是简单，快速完成功能。
-
-后续基本不会再对此分支进行修改，也不会向主分支中合并代码，新功能添加到 1.1 版本中。
-
-## 预览效果
-
-#### 首页
-
-![](https://image.broqiang.com/M837cv6tPs5nJFVLYxXAL59rGfdhb4.png)
-
-#### 文章详情
-
-![](https://image.broqiang.com/6zgPZtG9InNcUckkrcdwlgHdZqXAXZ.png)
-
-#### 后台
-
-![](https://image.broqiang.com/cNQ7ofMc7dT3l7VtQFfyFYA53C4ukF.png)
+创建了开发版分支，未完成的版本都放在此分支中
 
 ## 环境
 
