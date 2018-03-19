@@ -31,6 +31,20 @@
                         </a>
                     </div>
                 </li>
+                <li class="nav-item dropdown mx-2">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    教程管理
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('categories.index') }}">
+                            <i class="fa fa-tags mr-2 text-info"></i>分类管理
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ route('tutorials.index') }}">
+                            <i class="fa fa-file mr-2 text-info"></i>教程管理
+                        </a>
+                    </div>
+                </li>
                 <li class="nav-item dropdown  mx-2">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     用户管理
