@@ -27,7 +27,8 @@ Route::resource('notifications', 'NotificationsController', ['only' => ['index']
 Route::post('search/posts', 'SearchController@posts')->name('search.posts');
 
 /** 教程分类 */
-Route::resource('categories','CategoriesController');
+Route::resource('categories', 'CategoriesController');
 
 /** 教程 */
-Route::resource('tutorials', 'TutorialController');
+Route::resource('tutorials', 'TutorialsController');
+Route::post('tutorials/{tutorial}/upload', 'TutorialsController@upload');

@@ -21,37 +21,46 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">技能名称</th>
+                                <th scope="col">标题</th>
                                 <th scope="col">描述</th>
+                                <th scope="col">封面图片</th>
                                 <th scope="col">排序</th>
-                                <th scope="col">博客数量</th>
+                                <th scope="col">文章数量</th>
                                 <th scope="col">创建时间</th>
                                 <th scope="col">操作</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($tutorials as $skill)
+                            @foreach($tutorials as $tutorial)
                                 <tr>
-                                    <th scope="row">{{ $skill->id }}</th>
+                                    <th scope="row">{{ $tutorial->id }}</th>
                                     <td>
-                                        <a class="text-info" href="{{ route('tutorials.show', $skill->id) }}">
-                                            {{ $skill->name }}
+                                        <a class="text-info" href="{{ route('tutorials.show', $tutorial->id) }}">
+                                            {{ $tutorial->title }}
                                         </a>
                                     </td>
-                                    <td class="text-truncate" style="max-width: 150px;" title="{{ $skill->description }}">{{ $skill->description }}</td>
-                                    <td title="按照从大到小排序">{{ $skill->sort }}</td>
-                                    <td>{{ $skill->post_count }}</td>
-                                    <td title="{{ $skill->created_at }}">{{ $skill->created_at->diffForHumans() }}</td>
+                                    <td class="text-truncate" style="max-width: 150px;" title="{{ $tutorial->description }}">{{ $tutorial->description }}</td>
                                     <td>
-                                        <a class="btn btn-info btn-sm m-1" href="{{ route('tutorials.edit', $skill->id) }}">
+                                        <a href="{{ $tutorial->title_page }}" target="_blank">
+                                            <img src="{{ $tutorial->title_page }}" alt="封面图片" width="32">
+                                        </a>
+                                    </td>
+                                    <td title="按照从大到小排序">{{ $tutorial->sort }}</td>
+                                    <td>{{ $tutorial->article_counts }}</td>
+                                    <td title="{{ $tutorial->created_at }}">{{ $tutorial->created_at->diffForHumans() }}</td>
+                                    <td>
+                                        <button class="btn btn-secondary btn-sm m-1 js-upload-button" data-id="{{ $tutorial->id }}">
+                                            <i class="fa fa-upload"></i> 上传封面
+                                        </button>
+                                        
+                                        <a class="btn btn-info btn-sm m-1" href="{{ route('tutorials.edit', $tutorial->id) }}">
                                             <i class="fa fa-edit"></i> 编辑
                                         </a>
                                         <button class="btn btn-danger btn-sm m-1 js-btn-del" data-id="12">
                                             <i class="fa fa-trash-o"></i> 删除
-                                            <form class="d-none" action="{{ route('tutorials.destroy', $skill->id) }}" method="POST">
+                                            <form class="d-none" action="{{ route('tutorials.destroy', $tutorial->id) }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
-                                                1111
                                             </form>
                                         </button>
                                     </td>
@@ -73,15 +82,83 @@
         @endif
     </div>
 </div>
+
+<div class="modal fade bd-upload-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">上传封面图片</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary js-modal-save">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
 @stop
 
 @section('script')
+<script src="https://cdn.bootcss.com/jquery.form/4.2.2/jquery.form.min.js"></script>
 <script type="text/javascript">
     $('.js-btn-del').on('click',function(){
         var oForm = $(this).children('form');
         swal_delete(function(){
             oForm.submit();
         });
+    });
+
+    $('.js-upload-button').on('click', function(){
+        var id = $(this).data('id');
+        
+        var myForm = '\
+        <form class="js-modal-form" method="POST" enctype="multipart/form-data" action="{{ asset('tutorials/') }}/'+id+'/upload">\
+            <div class="form-group">\
+                @csrf\
+                <input type="file" class="form-control" id="js-modal-file" name="title_page">\
+            </div>\
+        </form>';
+        
+        $('.modal-body').html(myForm);
+
+        $('.bd-upload-modal-sm').modal('show');
+    });
+
+    $('.js-modal-save').on('click', function(){
+        $('.js-modal-form').ajaxSubmit(function(json){
+            if(!json.success) {
+                swal({
+                    title: "上传失败！",
+                    text: json.message,
+                    icon: "error",
+                    buttons: {
+                        cancel: '关闭',
+                    },
+                    timer: 5000
+                });
+                return false;
+            }
+
+            swal({
+                title: "上传成功！",
+                text: json.message,
+                icon: "success",
+                buttons: {
+                    confirm: '确定',
+                },
+                timer: 2000
+            }).then(function(){
+                $('.bd-upload-modal-sm').modal('hide');
+
+                location.reload();
+            });
+        })
     });
 </script>
 @stop

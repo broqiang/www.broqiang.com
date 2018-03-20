@@ -45,7 +45,7 @@ return [
         'editormd_id' => [
             'id'             => 'editormd_id', // 模板中使用的 id，这里要求和 key 相同
             'width'          => '100%', // 编辑器宽度
-            'height'         => 700, // 编辑器高度
+            'height'         => 500, // 编辑器高度
             'theme'          => 'default', // 主题，可以用的：白色-default，黑色-dark
             'path'           => '/vendor/editormd/lib/', // 插件保存位置
             'toolbarIcons'   => [
