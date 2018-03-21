@@ -412,8 +412,8 @@
 .markdown-body dl,
 .markdown-body table,
 .markdown-body pre {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 0;
+    margin-bottom: 16px;
 }
 
 .markdown-body hr {
@@ -586,14 +586,8 @@
 }
 
 .markdown-body table tr {
-    background-color: #E9F0F8;
-    width: 100%;
-}
-
-.markdown-body table tr {
     background-color: #fff;
     background-color: #E9F0F8;
->>>>>>> master
 }
 
 .markdown-body table tr:nth-child(2n) {
@@ -648,6 +642,7 @@
 
 .markdown-body .highlight pre,
 .markdown-body pre {
+    padding: 16px;
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
