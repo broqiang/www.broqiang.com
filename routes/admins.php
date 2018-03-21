@@ -21,3 +21,17 @@ Route::resource('users', 'UsersController', [
     'names'  => 'admins.users',
     'except' => ['show', 'create', 'store'],
 ]);
+
+/** 教程分类 */
+Route::resource('categories', 'CategoriesController', [
+    'names' => 'admins.categories',
+]);
+
+/** 教程 */
+Route::resource('tutorials', 'TutorialsController', [
+    'names' => 'admins.tutorials',
+]);
+// 上传封面
+Route::post('tutorials/{tutorial}/upload', 'TutorialsController@upload')->name('admins.tutorials.upload');
+// 创建文章
+Route::get('tutorials/{tutorial}/create', 'TutorialsController@createArticle')->name('admins.tutorials.article');

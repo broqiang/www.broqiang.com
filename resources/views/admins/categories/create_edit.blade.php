@@ -19,7 +19,7 @@
             </p>
         </div>
         <div class="card-body p-4 text-muted">
-            <form method="POST" action="{{ isset($category) ? route('categories.update', $category->id) : route('categories.store') }}">
+            <form method="POST" action="{{ isset($category) ? route('admins.categories.update', $category->id) : route('admins.categories.store') }}">
 
                 @csrf
                 @isset($category)

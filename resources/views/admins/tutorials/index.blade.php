@@ -10,7 +10,7 @@
             <div class="d-flex justify-content-between">
                 <div class="p-2 bd-highlight">教程列表</div>
                 <div class="p-2 bd-highlight">
-                    <a href="{{ route('tutorials.create') }}" class="btn btn-success"><i class="fa fa-plus mr-1"></i> 创建</a>
+                    <a href="{{ route('admins.tutorials.create') }}" class="btn btn-success"><i class="fa fa-plus mr-1"></i> 创建</a>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">标题</th>
                                 <th scope="col">描述</th>
-                                <th scope="col">封面图片</th>
+                                <th scope="col">封面</th>
                                 <th scope="col">排序</th>
                                 <th scope="col">文章数量</th>
                                 <th scope="col">创建时间</th>
@@ -35,30 +35,35 @@
                                 <tr>
                                     <th scope="row">{{ $tutorial->id }}</th>
                                     <td>
-                                        <a class="text-info" href="{{ route('tutorials.show', $tutorial->id) }}">
+                                        <a class="text-info" href="{{ route('admins.tutorials.show', $tutorial->id) }}">
                                             {{ $tutorial->title }}
                                         </a>
                                     </td>
                                     <td class="text-truncate" style="max-width: 150px;" title="{{ $tutorial->description }}">{{ $tutorial->description }}</td>
                                     <td>
-                                        <a href="{{ $tutorial->title_page }}" target="_blank">
-                                            <img src="{{ $tutorial->title_page }}" alt="封面图片" width="32">
-                                        </a>
+                                        @if($tutorial->title_page)
+                                            <a href="{{ $tutorial->title_page }}" target="_blank">
+                                                <img src="{{ $tutorial->title_page }}" alt="封面图片" width="32">
+                                            </a>
+                                        @endif
                                     </td>
                                     <td title="按照从大到小排序">{{ $tutorial->sort }}</td>
                                     <td>{{ $tutorial->article_counts }}</td>
                                     <td title="{{ $tutorial->created_at }}">{{ $tutorial->created_at->diffForHumans() }}</td>
                                     <td>
+                                        <a class="btn btn-dark btn-sm m-1" href="{{ route('admins.tutorials.show', $tutorial->id) }}">
+                                            <i class="fa fa-sign-in"></i> 进入
+                                        </a>
                                         <button class="btn btn-secondary btn-sm m-1 js-upload-button" data-id="{{ $tutorial->id }}">
                                             <i class="fa fa-upload"></i> 上传封面
                                         </button>
                                         
-                                        <a class="btn btn-info btn-sm m-1" href="{{ route('tutorials.edit', $tutorial->id) }}">
+                                        <a class="btn btn-info btn-sm m-1" href="{{ route('admins.tutorials.edit', $tutorial->id) }}">
                                             <i class="fa fa-edit"></i> 编辑
                                         </a>
                                         <button class="btn btn-danger btn-sm m-1 js-btn-del" data-id="12">
                                             <i class="fa fa-trash-o"></i> 删除
-                                            <form class="d-none" action="{{ route('tutorials.destroy', $tutorial->id) }}" method="POST">
+                                            <form class="d-none" action="{{ route('admins.tutorials.destroy', $tutorial->id) }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
                                             </form>
@@ -118,7 +123,7 @@
         var id = $(this).data('id');
         
         var myForm = '\
-        <form class="js-modal-form" method="POST" enctype="multipart/form-data" action="{{ asset('tutorials/') }}/'+id+'/upload">\
+        <form class="js-modal-form" method="POST" enctype="multipart/form-data" action="{{ asset('backend/tutorials/') }}/'+id+'/upload">\
             <div class="form-group">\
                 @csrf\
                 <input type="file" class="form-control" id="js-modal-file" name="title_page">\

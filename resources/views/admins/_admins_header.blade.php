@@ -36,11 +36,11 @@
                     教程管理
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('categories.index') }}">
+                        <a class="dropdown-item" href="{{ route('admins.categories.index') }}">
                             <i class="fa fa-tags mr-2 text-info"></i>分类管理
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ route('tutorials.index') }}">
+                        <a class="dropdown-item" href="{{ route('admins.tutorials.index') }}">
                             <i class="fa fa-file mr-2 text-info"></i>教程管理
                         </a>
                     </div>

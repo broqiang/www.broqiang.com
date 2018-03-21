@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admins;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class CategoriesController extends Controller
     public function index(Category $category)
     {
         $categories = $category->orderBy('sort', 'desc')->paginate(10);
-        return view('categories.index', compact('categories'));
+        return view('admins.categories.index', compact('categories'));
     }
 
     /**
@@ -32,7 +33,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categories.create_edit');
+        return view('admins.categories.create_edit');
     }
 
     /**
@@ -43,9 +44,9 @@ class CategoriesController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        Category::create($request->all());
+        Category::create(array_filter($request->all()));
 
-        return redirect(route('categories.index'))->with('message', '创建成功！');
+        return redirect(route('admins.categories.index'))->with('message', '创建成功！');
     }
 
     /**
@@ -67,7 +68,7 @@ class CategoriesController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('categories.create_edit', compact('category'));
+        return view('admins.categories.create_edit', compact('category'));
     }
 
     /**
@@ -81,7 +82,7 @@ class CategoriesController extends Controller
     {
         $category->update(array_filter($request->all()));
 
-        return redirect(route('categories.index'))->with('message', '修改成功！');
+        return redirect(route('admins.categories.index'))->with('message', '修改成功！');
     }
 
     /**

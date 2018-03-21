@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admins;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\TutorialRequest;
 use App\Models\Category;
 use App\Models\Tutorial;
@@ -18,7 +19,7 @@ class TutorialsController extends Controller
     public function index()
     {
         $tutorials = Tutorial::orderBy('sort', 'desc')->paginate(10);
-        return view('tutorials.index', compact('tutorials'));
+        return view('admins.tutorials.index', compact('tutorials'));
     }
 
     /**
@@ -29,7 +30,7 @@ class TutorialsController extends Controller
     public function create()
     {
         $categoris = Category::orderBy('sort', 'desc')->get();
-        return view('tutorials.create_edit', compact('categoris'));
+        return view('admins.tutorials.create_edit', compact('categoris'));
     }
 
     /**
@@ -42,7 +43,7 @@ class TutorialsController extends Controller
     {
         Tutorial::create(array_filter($request->all()));
 
-        return redirect(route('tutorials.index'));
+        return redirect(route('admins.tutorials.index'));
     }
 
     /**
@@ -51,9 +52,9 @@ class TutorialsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Tutorial $turotial)
+    public function show(Tutorial $tutorial)
     {
-        //
+        return view('admins.tutorials.show', compact('tutorial'));
     }
 
     /**
@@ -65,7 +66,7 @@ class TutorialsController extends Controller
     public function edit(Tutorial $tutorial)
     {
         $categoris = Category::orderBy('sort', 'desc')->get();
-        return view('tutorials.create_edit', compact(['categoris', 'tutorial']));
+        return view('admins.tutorials.create_edit', compact(['categoris', 'tutorial']));
     }
 
     /**
@@ -78,7 +79,7 @@ class TutorialsController extends Controller
     public function update(TutorialRequest $request, Tutorial $tutorial)
     {
         $tutorial->update(array_filter($request->all()));
-        return redirect(route('tutorials.index'))->with('message', '保存成功！');
+        return redirect(route('admins.tutorials.index'))->with('message', '保存成功！');
     }
 
     /**
@@ -102,9 +103,14 @@ class TutorialsController extends Controller
         }
 
         $res = $image->upload($request->title_page);
-        
+
         $tutorial->update(['title_page' => $res['url']]);
 
         return $res;
+    }
+
+    public function createArticle(Tutorial $tutorial)
+    {
+        // return view('articles')
     }
 }

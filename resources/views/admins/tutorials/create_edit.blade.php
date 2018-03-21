@@ -16,7 +16,7 @@
         </div>
         
         <div class="card-body p-4 text-muted">
-            <form method="POST" action="{{ isset($tutorial) ? route('tutorials.update', $tutorial->id) : route('tutorials.store') }}">
+            <form method="POST" action="{{ isset($tutorial) ? route('admins.tutorials.update', $tutorial->id) : route('admins.tutorials.store') }}">
                 @csrf
 
                 @isset($tutorial)
