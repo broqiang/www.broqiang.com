@@ -583,15 +583,11 @@
 .markdown-body table th,
 .markdown-body table td {
     padding: 6px 13px;
-<<<<<<< HEAD
-    /*border: 1px solid #dfe2e5;*/
 }
 
 .markdown-body table tr {
     background-color: #E9F0F8;
     width: 100%;
-    /*border-top: 1px solid #c6cbd1;*/
-=======
 }
 
 .markdown-body table tr {
@@ -656,11 +652,6 @@
     font-size: 85%;
     line-height: 1.45;
     background-color: #f6f8fa;
-<<<<<<< HEAD
-    border-left: 2px solid #00b5ad;
-=======
-    /*border-left: 2px solid #00b5ad;*/
->>>>>>> master
     border-radius: 3px;
 }
 
