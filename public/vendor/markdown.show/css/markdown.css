@@ -175,7 +175,7 @@
 .markdown-body kbd,
 .markdown-body pre {
     font-family: monospace, monospace;
-    font-size: 1em;
+    font-size: 0.9em;
 }
 
 .markdown-body hr {
@@ -412,8 +412,8 @@
 .markdown-body dl,
 .markdown-body table,
 .markdown-body pre {
-    margin-top: 0;
-    margin-bottom: 16px;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
 .markdown-body hr {
@@ -583,12 +583,13 @@
 .markdown-body table th,
 .markdown-body table td {
     padding: 6px 13px;
-    border: 1px solid #dfe2e5;
+    /*border: 1px solid #dfe2e5;*/
 }
 
 .markdown-body table tr {
-    background-color: #fff;
-    border-top: 1px solid #c6cbd1;
+    background-color: #E9F0F8;
+    width: 100%;
+    /*border-top: 1px solid #c6cbd1;*/
 }
 
 .markdown-body table tr:nth-child(2n) {
@@ -643,11 +644,11 @@
 
 .markdown-body .highlight pre,
 .markdown-body pre {
-    padding: 16px;
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
     background-color: #f6f8fa;
+    border-left: 2px solid #00b5ad;
     border-radius: 3px;
 }
 
@@ -779,33 +780,12 @@
     text-decoration: underline;
 }
 
-
-/* Put a border around prettyprinted code snippets. */
-
-pre.prettyprint {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-left: 2px solid #00b5ad;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+.hljs-ln-code {
+    width: 100%;
+    /*border-left: 1px solid #fff;*/
 }
 
-
-/* Specify class=linenums on a pre to get line numbering */
-
-ol.linenums {
-    margin-top: 0;
-    margin-bottom: 0;
+.hljs-ln-numbers {
     color: #999;
-}
-
-
-/* Alternate shading for lines */
-
-li.L1,
-li.L3,
-li.L5,
-li.L7,
-li.L9 {
-    background: #E9F0F8;
+    background-color: #f8f9fa;
 }
