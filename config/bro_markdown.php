@@ -14,7 +14,7 @@ return [
     // 预览时的 js
     'markdown_preview_js'  => [
         'https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js',
-        'https://cdn.bootcss.com/prettify/r298/prettify.min.js',
+        'https://cdn.bootcss.com/highlightjs-line-numbers.js/2.2.0/highlightjs-line-numbers.min.js',
     ],
 
     /**
@@ -45,7 +45,7 @@ return [
         'editormd_id' => [
             'id'             => 'editormd_id', // 模板中使用的 id，这里要求和 key 相同
             'width'          => '100%', // 编辑器宽度
-            'height'         => 700, // 编辑器高度
+            'height'         => 500, // 编辑器高度
             'theme'          => 'default', // 主题，可以用的：白色-default，黑色-dark
             'path'           => '/vendor/editormd/lib/', // 插件保存位置
             'toolbarIcons'   => [
