@@ -175,7 +175,7 @@
 .markdown-body kbd,
 .markdown-body pre {
     font-family: monospace, monospace;
-    font-size: 1em;
+    font-size: 0.9em;
 }
 
 .markdown-body hr {
@@ -647,7 +647,6 @@
     font-size: 85%;
     line-height: 1.45;
     background-color: #f6f8fa;
-    /*border-left: 2px solid #00b5ad;*/
     border-radius: 3px;
 }
 
