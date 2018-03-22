@@ -18,7 +18,7 @@ class TutorialsController extends Controller
      */
     public function index()
     {
-        $tutorials = Tutorial::orderBy('sort', 'desc')->paginate(10);
+        $tutorials = Tutorial::orderBy('sort', 'desc')->with('category')->paginate(10);
         return view('admins.tutorials.index', compact('tutorials'));
     }
 
@@ -107,10 +107,5 @@ class TutorialsController extends Controller
         $tutorial->update(['title_page' => $res['url']]);
 
         return $res;
-    }
-
-    public function createArticle(Tutorial $tutorial)
-    {
-        // return view('articles')
     }
 }

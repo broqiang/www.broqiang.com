@@ -17,9 +17,10 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->string('title')->comment('文章标题');
             $table->mediumtext('body');
-            $table->string('slug')->index();
+            $table->string('alias')->index();
             $table->unsignedInteger('pid')->default(0);
             $table->unsignedInteger('user_id')->index();
+            $table->unsignedInteger('tutorial_id')->index();
             $table->unsignedInteger('comment_count')->default(0)->comment('评论数');
             $table->unsignedInteger('follow_count')->default(0)->comment('关注数');
             $table->unsignedInteger('view_count')->default(0)->comment('访问数');

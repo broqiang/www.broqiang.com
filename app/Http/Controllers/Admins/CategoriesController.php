@@ -55,9 +55,11 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
-        //
+        $tutorials = $category->tutorials()->paginate(10);
+
+        return view('admins.tutorials.index', compact('tutorials'));
     }
 
     /**

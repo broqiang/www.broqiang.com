@@ -33,5 +33,8 @@ Route::resource('tutorials', 'TutorialsController', [
 ]);
 // 上传封面
 Route::post('tutorials/{tutorial}/upload', 'TutorialsController@upload')->name('admins.tutorials.upload');
+
 // 创建文章
-Route::get('tutorials/{tutorial}/create', 'TutorialsController@createArticle')->name('admins.tutorials.article');
+Route::resource('tutorials/{tutorial}/aritcles', 'ArticlesController', [
+    'names' => 'admins.articles',
+]);

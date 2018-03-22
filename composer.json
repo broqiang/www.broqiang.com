@@ -15,6 +15,7 @@
         "mews/captcha": "~2.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.1",
         "broqiang/laravel-lang": "^1.0",
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
