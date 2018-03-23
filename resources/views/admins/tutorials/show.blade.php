@@ -25,10 +25,10 @@
                 <div class="card-header bg-transparent">
                     <div class="d-flex justify-content-between">
                         <div class="p-2 bd-highlight">
-                            <h3><a href="{{ route('admins.tutorials.show', $tutorial->alias) }}" class="text-muted">{{ $tutorial->title }}</a></h3>
+                            <h3><a href="{{ route('admins.tutorials.show', $tutorial->id) }}" class="text-muted">{{ $tutorial->title }}</a></h3>
                         </div>
                         <div class="p-2 bd-highlight">
-                            <a  class="js-add-article" title="添加文章" href="javascript:void(0);" data-url="{{ route('admins.articles.create', $tutorial->alias) }}">
+                            <a  class="js-add-article" title="添加文章" href="javascript:void(0);" data-url="{{ route('admins.articles.create', $tutorial->id) }}">
                                 <i class="fa fa-plus text-success" ></i>
                             </a>
                         </div>
@@ -38,14 +38,14 @@
                     <div class="card-body">
                         <nav class="nav flex-column">
                             @foreach($tutorial->articles as $tarticle)
-                                <a class="nav-link font-weight-bold text-truncate {{ isset($article) && $tarticle->id === $article->id ? 'bg-dark text-light' : 'text-muted' }}" href="{{ route('admins.articles.edit', [$tutorial->alias, $tarticle->alias]) }}" title="{{ $tarticle->title }}">
+                                <a class="nav-link font-weight-bold text-truncate {{ isset($article) && $tarticle->id === $article->id ? 'bg-dark text-light' : 'text-muted' }}" href="{{ route('admins.articles.edit', [$tutorial->id, $tarticle->id]) }}" title="{{ $tarticle->title }} -- {{ $tarticle->slug }}">
                                     <i class="fa fa-folder mr-1 text-primary"></i>
                                     {{ $tarticle->title }}
                                     <span class="pull-right">{{ $tarticle->sort }}</span>
                                 </a>
                                 @if(count($tarticle->children_articles))
                                     @foreach($tarticle->children_articles as $children_article)
-                                        <a class="3 nav-link font-weight-bold text-truncate {{ isset($article) && $children_article->id === $article->id ? 'bg-dark text-light' : 'text-muted' }}" href="{{ route('admins.articles.edit', [$tutorial->alias, $children_article->alias]) }}" title="{{ $children_article->title }}">
+                                        <a class="3 nav-link font-weight-bold text-truncate {{ isset($article) && $children_article->id === $article->id ? 'bg-dark text-light' : 'text-muted' }}" href="{{ route('admins.articles.edit', [$tutorial->id, $children_article->id]) }}" title="{{ $children_article->title }} -- {{ $children_article->slug }}">
                                             <i class="fa fa-file-text mr-1 ml-4"></i>
                                             {{ $children_article->title }}
                                             <span class="pull-right">{{ $children_article->sort }}</span>
@@ -70,12 +70,12 @@
                                 <button class="btn btn-success btn-sm js-article-save">
                                     <i class="fa fa-save"></i> 保存
                                 </button>
-                                <button class="js-add-article btn btn-info btn-sm" title="编辑文章" data-url="{{ route('admins.articles.edit_title', [$tutorial->alias, $article->alias]) }}">
+                                <button class="js-add-article btn btn-info btn-sm" title="编辑文章" data-url="{{ route('admins.articles.edit_title', [$tutorial->id, $article->id]) }}">
                                     <i class="fa fa-edit" ></i> 编辑
                                 </button>
 
                                 @if($article->pid == 0)
-                                    <button class="js-add-article ml-1 btn btn-success btn-sm" title="添加子文章" data-url="{{ route('admins.articles.create', $tutorial->alias) }}?pid={{ $article->id }}">
+                                    <button class="js-add-article ml-1 btn btn-success btn-sm" title="添加子文章" data-url="{{ route('admins.articles.create', $tutorial->id) }}?pid={{ $article->id }}">
                                         <i class="fa fa-plus" ></i> 添加下级文章
                                     </button>
                                 @endif
@@ -131,7 +131,7 @@
 <script type="text/javascript">
     @isset ($article)
         $('.js-article-save').on('click', function(){
-            var _url = "{{ route('admins.articles.update', [$tutorial->alias, $article->alias]) }}";
+            var _url = "{{ route('admins.articles.update', [$tutorial->id, $article->id]) }}";
 
             var formData = {
                 body: editormd_id.getMarkdown(),

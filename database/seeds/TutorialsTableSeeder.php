@@ -17,7 +17,7 @@ class TutorialsTableSeeder extends Seeder
             [
                 'title'       => 'PHP 基础教程',
                 'description' => 'PHP 基础教程',
-                'alias' => 'php_base_tutorial',
+                'slug' => 'php_base_tutorial',
                 'category_id' => 2,
                 'sort'        => 180,
                 'created_at'  => Carbon::now(),
@@ -26,7 +26,7 @@ class TutorialsTableSeeder extends Seeder
             [
                 'title'       => 'Laravel 基础教程',
                 'description' => 'Laravel 基础教程',
-                'alias' => 'laravel_base_tutorial',
+                'slug' => 'laravel_base_tutorial',
                 'category_id' => 3,
                 'sort'        => 170,
                 'created_at'  => Carbon::now(),

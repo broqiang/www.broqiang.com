@@ -16,7 +16,7 @@
         </div>
         
         <div class="card-body p-4 text-muted">
-            <form method="POST" action="{{ isset($tutorial) ? route('admins.tutorials.update', $tutorial->alias) : route('admins.tutorials.store') }}">
+            <form method="POST" action="{{ isset($tutorial) ? route('admins.tutorials.update', $tutorial->id) : route('admins.tutorials.store') }}">
                 @csrf
 
                 @isset($tutorial)
@@ -37,7 +37,7 @@
                 <div class="form-group">
                     <label for="title">别名</label>
 
-                    <input type="text" class="form-control {{ $errors->has('alias') ? ' is-invalid' : '' }}" name="alias" value="{{ old('alias', isset($tutorial) ? $tutorial->alias : '') }}" required autofocus placeholder="输入标题">
+                    <input type="text" class="form-control {{ $errors->has('alias') ? ' is-invalid' : '' }}" name="alias" value="{{ old('alias', isset($tutorial) ? $tutorial->id : '') }}" required autofocus placeholder="输入标题">
 
                     @if ($errors->has('alias'))
                         <span class="invalid-feedback">

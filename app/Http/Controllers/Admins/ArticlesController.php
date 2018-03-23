@@ -34,7 +34,7 @@ class ArticlesController extends Controller
         return [
             'success' => 1,
             'message' => '保存成功！',
-            'url'     => route('admins.articles.edit', [$tutorial->alias, $article->alias]),
+            'url'     => route('admins.articles.edit', [$tutorial->id, $article->id]),
         ];
     }
 
@@ -51,13 +51,7 @@ class ArticlesController extends Controller
 
     public function edit(Tutorial $tutorial, Article $article)
     {
-        $tutorial->load(['articles' => function ($query) {
-            $query->where('pid', 0);
-            $query->orderBy('sort', 'asc');
-            $query->with(['children_articles' => function ($query) {
-                $query->orderBy('sort', 'asc');
-            }]);
-        }]);
+        $tutorial->allArticles();
 
         return view('admins.tutorials.show', compact(['tutorial', 'article']));
     }
@@ -69,7 +63,7 @@ class ArticlesController extends Controller
         return [
             'success' => 1,
             'message' => '保存成功！',
-            'url'     => route('admins.articles.edit', [$tutorial->alias, $article->alias]),
+            'url'     => route('admins.articles.edit', [$tutorial->id, $article->id]),
         ];
     }
 }

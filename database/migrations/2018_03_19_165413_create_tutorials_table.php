@@ -18,7 +18,7 @@ class CreateTutorialsTable extends Migration
             $table->string('title')->comment('教程标题');
             $table->string('description', 1024)->comment('教程描述');
             $table->string('title_page')->default('')->comment('封面图片 url');
-            $table->string('alias')->unique()->comment('别名，访问路径使用，访问路径');
+            $table->string('slug')->comment('seo 友好路径');
             $table->unsignedInteger('category_id')->comment('所属分类');
             $table->unsignedInteger('sort')->default(100);
             $table->unsignedInteger('follows')->default(0)->comment('关注人数');

@@ -17,7 +17,7 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->string('title')->comment('文章标题');
             $table->mediumtext('body')->nullable();
-            $table->string('alias')->index();
+            $table->string('slug')->comment('seo 友好路径');
             $table->unsignedInteger('pid')->default(0);
             $table->unsignedInteger('user_id')->index();
             $table->unsignedInteger('tutorial_id')->index();

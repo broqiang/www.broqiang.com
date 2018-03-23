@@ -54,13 +54,7 @@ class TutorialsController extends Controller
      */
     public function show(Tutorial $tutorial)
     {
-        $tutorial->load(['articles' => function ($query) {
-            $query->where('pid', 0);
-            $query->orderBy('sort', 'asc');
-            $query->with(['children_articles' => function ($query) {
-                $query->orderBy('sort', 'asc');
-            }]);
-        }]);
+        $tutorial->allArticles();
 
         return view('admins.tutorials.show', compact('tutorial'));
     }

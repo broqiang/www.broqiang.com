@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Article;
 use App\Models\Comment;
 use App\Models\Post;
+use App\Observers\ArticleObserver;
 use App\Observers\CommentObserver;
 use App\Observers\PostObserver;
 use Illuminate\Support\ServiceProvider;
@@ -19,6 +21,7 @@ class ObserverProvider extends ServiceProvider
     {
         Comment::observe(CommentObserver::class);
         Post::observe(PostObserver::class);
+        Article::observe(ArticleObserver::class);
     }
 
     /**
