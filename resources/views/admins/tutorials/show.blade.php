@@ -2,6 +2,21 @@
 
 @section('title', '教程列表') 
 
+@section('css')
+    {!! editormd_css() !!}
+    <style>
+        .swal-text {
+            background-color: #FEFAE3;
+            padding: 17px;
+            border: 1px solid #F0E1A1;
+            display: block;
+            margin: 22px;
+            text-align: left;
+            color: #61534e;
+        }
+    </style>
+@stop
+
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -9,7 +24,9 @@
             <div class="card text-muted">
                 <div class="card-header bg-transparent">
                     <div class="d-flex justify-content-between">
-                        <div class="p-2 bd-highlight"><h3>{{ $tutorial->title }}</h3></div>
+                        <div class="p-2 bd-highlight">
+                            <h3><a href="{{ route('admins.tutorials.show', $tutorial->alias) }}" class="text-muted">{{ $tutorial->title }}</a></h3>
+                        </div>
                         <div class="p-2 bd-highlight">
                             <a  class="js-add-article" title="添加文章" href="javascript:void(0);" data-url="{{ route('admins.articles.create', $tutorial->alias) }}">
                                 <i class="fa fa-plus text-success" ></i>
@@ -17,17 +34,69 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    
-                </div>
+                @if(count($tutorial->articles))
+                    <div class="card-body">
+                        <nav class="nav flex-column">
+                            @foreach($tutorial->articles as $tarticle)
+                                <a class="nav-link font-weight-bold text-truncate {{ isset($article) && $tarticle->id === $article->id ? 'bg-dark text-light' : 'text-muted' }}" href="{{ route('admins.articles.edit', [$tutorial->alias, $tarticle->alias]) }}" title="{{ $tarticle->title }}">
+                                    <i class="fa fa-folder mr-1 text-primary"></i>
+                                    {{ $tarticle->title }}
+                                    <span class="pull-right">{{ $tarticle->sort }}</span>
+                                </a>
+                                @if(count($tarticle->children_articles))
+                                    @foreach($tarticle->children_articles as $children_article)
+                                        <a class="3 nav-link font-weight-bold text-truncate {{ isset($article) && $children_article->id === $article->id ? 'bg-dark text-light' : 'text-muted' }}" href="{{ route('admins.articles.edit', [$tutorial->alias, $children_article->alias]) }}" title="{{ $children_article->title }}">
+                                            <i class="fa fa-file-text mr-1 ml-4"></i>
+                                            {{ $children_article->title }}
+                                            <span class="pull-right">{{ $children_article->sort }}</span>
+                                        </a>
+                                    @endforeach
+                                @endif
+                            @endforeach
+                        </nav>                        
+                    </div>
+                @endif
             </div>
         </div>
         <div class="col-md-9">
-            <div class="card text-muted">
-                <div class="card-body bg-transparent">
-                    djsakdjlksajlksda
+            @isset($article)
+                <div class="card text-muted">
+                    <div class="card-header bg-transparent">
+                        <div class="d-flex justify-content-between">
+                            <div class="p-2 bd-highlight">
+                                <h4>{{ $article->title }}</h4>
+                            </div>
+                            <div class="p-2 bd-highlight">
+                                <button class="btn btn-success btn-sm js-article-save">
+                                    <i class="fa fa-save"></i> 保存
+                                </button>
+                                <button class="js-add-article btn btn-info btn-sm" title="编辑文章" data-url="{{ route('admins.articles.edit_title', [$tutorial->alias, $article->alias]) }}">
+                                    <i class="fa fa-edit" ></i> 编辑
+                                </button>
+
+                                @if($article->pid == 0)
+                                    <button class="js-add-article ml-1 btn btn-success btn-sm" title="添加子文章" data-url="{{ route('admins.articles.create', $tutorial->alias) }}?pid={{ $article->id }}">
+                                        <i class="fa fa-plus" ></i> 添加下级文章
+                                    </button>
+                                @endif
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                        <div id="editormd_id">
+                            <textarea class="d-none" name="body">{{ old('body', isset($article) ? $article->body : '') }}</textarea>
+                        </div>
                 </div>
-            </div>
+            @else
+                <div class="card text-muted">
+                    <div class="card-body bg-transparent">
+                            {{ $tutorial->description }}
+                            <hr>
+                            点击左侧的 <i class="fa fa-plus text-success" ></i> 号按钮添加新的文章，点击文章标题可以编辑文章
+                    </div>
+                </div>
+            @endisset
         </div>
     </div>
 </div>
@@ -36,7 +105,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-muted">添加新的文章</h5>
+                <h5 class="modal-title text-muted">编辑文章</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -54,9 +123,27 @@
 
 @section('script')
 
+@isset ($article)
 <script src="https://cdn.bootcss.com/jquery.form/4.2.2/jquery.form.min.js"></script>
+{!! editormd_js($article->body,750) !!}
+@endisset
 
 <script type="text/javascript">
+    @isset ($article)
+        $('.js-article-save').on('click', function(){
+            var _url = "{{ route('admins.articles.update', [$tutorial->alias, $article->alias]) }}";
+
+            var formData = {
+                body: editormd_id.getMarkdown(),
+                _token: "{{ csrf_token() }}",
+                _method: "PATCH"
+            }
+
+            laravel_ajax(_url, formData);
+        });
+    @endisset
+    
+
     $('.js-add-article').on('click',function(){
         var _url = $(this).data('url');
         $('.modal-body').load(_url);
@@ -64,35 +151,62 @@
     });
 
     $('.js-modal-save').on('click', function(){
-        $('.js-modal-form').ajaxSubmit(function(json){
-            if(!json.success) {
-                swal({
-                    title: "失败！",
-                    text: json.message,
-                    icon: "error",
-                    buttons: {
-                        cancel: '关闭',
-                    },
-                    timer: 5000
-                });
-                return false;
-            }
+        var formObj = $('.js-modal-form');
+        var _url = formObj.prop('action');
+        var formData = formObj.serializeArray();
 
-            swal({
-                title: "成功！",
-                text: json.message,
-                icon: "success",
-                buttons: {
-                    confirm: '确定',
-                },
-                timer: 2000
-            }).then(function(){
-                $('.bd-upload-modal-sm').modal('hide');
+        laravel_ajax(_url, formData);
 
-                location.reload();
-            });
-        });
     });
+
+    function laravel_ajax(_url, formData)
+    {
+        $.ajax({
+            type: 'POST',
+            url: _url,
+            data: formData,
+            dataType: 'json',
+            success: function(json){
+                swal({
+                    title: "保存成功！",
+                    text: json.message,
+                    icon: "success",
+                    buttons: {
+                        confirm: '确定',
+                    },
+                    timer: 2000
+                }).then(function(){
+                    $('.bd-upload-modal-sm').modal('hide');
+
+                    location.href=json.url;
+                });
+            },
+            // Laravel 会返回 422，所以在这里捕捉错误信息
+            error: function(json){
+                if(json.status != 200) {
+                    var errors = json.responseJSON;
+                    var message = '系统内部错误！';
+
+                    if(!!errors) {
+                        message = '';
+                        $.each(errors.errors,function(key, val){
+                            message += val + "\n\n";
+                        });
+
+                        swal({
+                            title: "保存失败！",
+                            text: message,
+                            icon: "error",
+                            buttons: {
+                                cancel: '关闭',
+                            },
+                            timer: 5000
+                        });
+                    }
+                }
+            }
+        });
+    }
     
 </script>
 

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,5 +18,10 @@ class Tutorial extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
     }
 }

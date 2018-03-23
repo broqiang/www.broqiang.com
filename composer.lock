@@ -59,16 +59,16 @@
         },
         {
             "name": "broqiang/laravel-markdown",
-            "version": "v1.0.3",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BroQiang/laravel-markdown.git",
-                "reference": "05e43888cbdc1f36b3b211764046231fce04d211"
+                "reference": "b5fe14a75f1562c797c4ce171159adbf1289aa12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/BroQiang/laravel-markdown/05e43888cbdc1f36b3b211764046231fce04d211.zip",
-                "reference": "05e43888cbdc1f36b3b211764046231fce04d211",
+                "url": "https://files.phpcomposer.com/files/BroQiang/laravel-markdown/b5fe14a75f1562c797c4ce171159adbf1289aa12.zip",
+                "reference": "b5fe14a75f1562c797c4ce171159adbf1289aa12",
                 "shasum": ""
             },
             "require": {
@@ -111,7 +111,7 @@
                 "laravel",
                 "markdown"
             ],
-            "time": "2018-03-12T08:50:51+00:00"
+            "time": "2018-03-21T07:09:46+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

@@ -16,7 +16,7 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->comment('文章标题');
-            $table->mediumtext('body');
+            $table->mediumtext('body')->nullable();
             $table->string('alias')->index();
             $table->unsignedInteger('pid')->default(0);
             $table->unsignedInteger('user_id')->index();

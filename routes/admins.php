@@ -35,6 +35,8 @@ Route::resource('tutorials', 'TutorialsController', [
 Route::post('tutorials/{tutorial}/upload', 'TutorialsController@upload')->name('admins.tutorials.upload');
 
 // 创建文章
-Route::resource('tutorials/{tutorial}/aritcles', 'ArticlesController', [
+Route::resource('tutorials/{tutorial}/articles', 'ArticlesController', [
     'names' => 'admins.articles',
 ]);
+// 编辑文章标题
+Route::get('tutorials/{tutorial}/articles/{article}/edit_title', 'ArticlesController@edit_title')->name('admins.articles.edit_title');
