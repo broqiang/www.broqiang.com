@@ -64,13 +64,19 @@ __方法二 通过 github 直接下载代码__
 ```bash
 git clone https://github.com/BroQiang/www.broqiang.com.git
 
+```
+
+#### 安装依赖关系
+
+```
+cd broqiang.com
 composer install
 ```
 
 #### 配置目录权限
 
 ```bash
-cd broqiang.com
+
 sudo chmod -R 777 storage
 sudo chmod -R 777 public/uploads
 ```
