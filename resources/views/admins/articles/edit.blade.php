@@ -1,6 +1,6 @@
     <div class="card">
         <div class="card-body p-4 text-muted">
-            <form method="POST" class="js-modal-form" action="{{ route('admins.articles.update', [$tutorial->id, $article->id]) }}">
+            <form method="POST" class="js-modal-form" action="{{ route('admins.articles.update', [$tutorial->slug, $article->id]) }}">
                 @csrf
                 <input type="hidden" name="_method" value="PUT">
                 <div class="form-group">

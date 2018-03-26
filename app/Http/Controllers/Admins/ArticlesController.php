@@ -34,7 +34,7 @@ class ArticlesController extends Controller
         return [
             'success' => 1,
             'message' => '保存成功！',
-            'url'     => route('admins.articles.edit', [$tutorial->id, $article->id]),
+            'url'     => route('admins.articles.edit', [$tutorial->slug, $article->id]),
         ];
     }
 
@@ -63,7 +63,13 @@ class ArticlesController extends Controller
         return [
             'success' => 1,
             'message' => '保存成功！',
-            'url'     => route('admins.articles.edit', [$tutorial->id, $article->id]),
+            'url'     => route('admins.articles.edit', [$tutorial->slug, $article->id]),
         ];
+    }
+
+    public function destroy(Tutorial $tutorial, Article $article)
+    {
+        $article->delete();
+        return redirect(route('admins.tutorials.show', $tutorial->slug));
     }
 }

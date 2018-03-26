@@ -1,6 +1,6 @@
     <div class="card">
         <div class="card-body p-4 text-muted">
-            <form method="POST" class="js-modal-form" action="{{ route('admins.articles.store', $tutorial->id) }}">
+            <form method="POST" class="js-modal-form" action="{{ route('admins.articles.store', $tutorial->slug) }}">
                 @csrf
                 <div class="form-group">
                     <label for="title">文章标题</label>

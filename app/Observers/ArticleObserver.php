@@ -12,8 +12,13 @@ class ArticleObserver
 {
     public function saving(Article $article)
     {
-        if ( ! $article->slug) {
+        if (!$article->slug) {
             $article->slug = app(SlugTranslateHandler::class)->translate($article->title);
         }
+    }
+
+    public function deleting(Article $article)
+    {
+        $article->where('pid', $article->id)->delete();
     }
 }

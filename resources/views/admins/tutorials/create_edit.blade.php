@@ -35,18 +35,6 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="title">别名</label>
-
-                    <input type="text" class="form-control {{ $errors->has('alias') ? ' is-invalid' : '' }}" name="alias" value="{{ old('alias', isset($tutorial) ? $tutorial->id : '') }}" required autofocus placeholder="输入标题">
-
-                    @if ($errors->has('alias'))
-                        <span class="invalid-feedback">
-                            <strong>{{ $errors->first('alias') }}</strong>
-                        </span>
-                    @endif
-                    <small>用来访问的路径，别名只能由 <code>字母、数字、破折号（ - ）以及下划线（ _ ）</code>组成，并且<code>不能重复</code></small>
-                </div>
-                <div class="form-group">
                     <label for="category_id">分类</label>
 
                     <select class="form-control {{ $errors->has('category_id') ? ' is-invalid' : '' }}" name="category_id" required>
