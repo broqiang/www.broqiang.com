@@ -45,11 +45,20 @@ __方法二 通过 github 直接下载代码__
 
 ```bash
 git clone https://github.com/BroQiang/www.broqiang.com.git
+
+```
+
+#### 安装依赖关系
+
+```
+cd broqiang.com
+composer install
 ```
 
 #### 配置目录权限
 
 ```bash
+
 sudo chmod -R 777 storage
 sudo chmod -R 777 public/uploads
 ```
@@ -58,7 +67,6 @@ sudo chmod -R 777 public/uploads
 
 ```bash
 # 复制配置文件
-cd broqiang.com
 cp .env.example .env
 
 # 修改配置文件
