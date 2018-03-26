@@ -19,7 +19,7 @@ class TutorialPolicy
 
     public function isMember(User $user, Tutorial $tutorial)
     {
-        if($tutorial->isPublic()) {
+        if ($tutorial->isPublic()) {
             return true;
         }
         return $user->member_level > 0;
