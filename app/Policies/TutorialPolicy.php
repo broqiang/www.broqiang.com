@@ -10,26 +10,18 @@ class TutorialPolicy
 {
     use HandlesAuthorization;
 
-    public function index(User $user)
+    public function before($user, $ability)
     {
-        if ($user->is_admin) {
+        if ($user->isSuperAdmin()) {
             return true;
         }
-
-        return $user->member_level > 0;
     }
 
-    public function show(User $user, Tutorial $tutorial)
+    public function isMember(User $user, Tutorial $tutorial)
     {
-        return $this->checkAuthorization($user, $tutorial);
-    }
-
-    protected function checkAuthorization(User $user, Tutorial $tutorial)
-    {
-        if ($user->is_admin || $tutorial->auth) {
+        if($tutorial->isPublic()) {
             return true;
         }
-
         return $user->member_level > 0;
     }
 

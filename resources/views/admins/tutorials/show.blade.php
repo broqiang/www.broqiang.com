@@ -38,8 +38,11 @@
                     <div class="card-body">
                         <nav class="nav flex-column">
                             @foreach($tutorial->articles as $tarticle)
-                                <a class="nav-link font-weight-bold text-truncate {{ isset($article) && $tarticle->id === $article->id ? 'bg-dark text-light' : 'text-muted' }}" href="{{ route('admins.articles.edit', [$tutorial->slug, $tarticle->id]) }}" title="{{ $tarticle->title }} -- {{ $tarticle->slug }}">
-                                    <i class="fa fa-folder mr-1 text-primary"></i>
+                                <a class="nav-link font-weight-bold text-truncate 
+                                    {{ isset($article) && $tarticle->id === $article->id ? 'bg-dark text-light' : 'text-muted' }}" 
+                                    href="{{ route('admins.articles.edit', [$tutorial->slug, $tarticle->id]) }}" 
+                                    title="{{ $tarticle->title }} -- {{ $tarticle->slug }}">
+                                    <i class="fa fa-folder mr-1 text-info"></i>
                                     {{ $tarticle->title }}
                                     <span class="pull-right">{{ $tarticle->sort }}</span>
                                 </a>

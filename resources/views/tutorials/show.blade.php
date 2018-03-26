@@ -20,13 +20,19 @@
                     <div class="card-body">
                         <nav class="nav flex-column">
                             @foreach($tutorial->articles as $tarticle)
-                                <a class="my-2 nav-link font-weight-bold text-truncate {{ isset($article) && $tarticle->id === $article->id ? 'bg-dark text-light' : 'text-muted' }}" href="{{ $tarticle->link($tutorial) }}" title="{{ $tarticle->title }} -- {{ $tarticle->slug }}">
+                                <a class="my-2 nav-link font-weight-bold text-truncate 
+                                    {{ isset($article) && $tarticle->id === $article->id ? 'bg-dark text-light' : 'text-muted' }}" 
+                                    href="{{ $tarticle->link($tutorial) }}" title="{{ $tarticle->title }} -- {{ $tarticle->slug }}" 
+                                    style="max-width: 100%">
                                     <i class="fa fa-folder mr-1 text-info"></i>
                                     {{ $tarticle->title }}
                                 </a>
                                 @if(count($tarticle->children_articles))
                                     @foreach($tarticle->children_articles as $children_article)
-                                        <a class="nav-link text-truncate {{ isset($article) && $children_article->id === $article->id ? 'bg-dark text-light' : 'text-muted' }}" href="{{ $children_article->link($tutorial) }}" title="{{ $children_article->title }} -- {{ $children_article->slug }}">
+                                        <a class="nav-link text-truncate 
+                                            {{ isset($article) && $children_article->id === $article->id ? 'bg-dark text-light' : 'text-muted' }}" 
+                                            href="{{ $children_article->link($tutorial) }}" 
+                                            title="{{ $children_article->title }} -- {{ $children_article->slug }}" style="max-width: 100%">
                                             <i class="fa fa-file-text mr-1 ml-4"></i>
                                             {{ $children_article->title }}
                                         </a>

@@ -56,4 +56,9 @@ class Tutorial extends Model
             }
         }, ARRAY_FILTER_USE_BOTH);
     }
+
+    public function isPublic()
+    {
+        return $this->auth;
+    }
 }
