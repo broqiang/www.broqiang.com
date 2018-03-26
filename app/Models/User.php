@@ -83,7 +83,7 @@ class User extends Authenticatable
         $this->unreadNotifications->markAsRead();
     }
 
-    public function isSuperAdmin()
+    public function isSuperAdmin ()
     {
         return $this->is_admin;
     }

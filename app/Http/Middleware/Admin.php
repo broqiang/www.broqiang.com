@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Support\Facades\Auth;
 
 class Admin
 {
@@ -15,6 +17,11 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if(Auth::check() && Auth::user()->isSuperAdmin()) {
+            return $next($request);
+        }
+        
+        throw new AuthorizationException("没有权限访问此内容");
+        
     }
 }
