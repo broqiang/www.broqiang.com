@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
-class PostProvider extends ServiceProvider
+class BladeProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.
@@ -16,8 +16,13 @@ class PostProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->whetherFollow();
+        $this->myBlades();
 
+        $this->myViews();
+    }
+
+    protected function myViews()
+    {
         /**
          * 博客侧边栏
          */
@@ -25,10 +30,9 @@ class PostProvider extends ServiceProvider
             // 这里的菜单是随意写的，可以根据实际情况去获取，比如从数据库中     $menus = ['主页','文章'];
             $view->with('archives', Post::archive());
         });
-
     }
 
-    protected function whetherFollow()
+    protected function myBlades()
     {
         // 自定义标签
         Blade::if ('whether_follow', function ($follows) {
@@ -41,6 +45,10 @@ class PostProvider extends ServiceProvider
                 }
             }
             return false;
+        });
+
+        Blade::if ('env', function ($environment) {
+            return app()->environment($environment);
         });
     }
 
