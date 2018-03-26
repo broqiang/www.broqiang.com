@@ -80,7 +80,8 @@ class TutorialsController extends Controller
      */
     public function update(TutorialRequest $request, Tutorial $tutorial)
     {
-        $tutorial->update(array_filter($request->all()));
+        $tutorial->update($tutorial->dataFilter($request->all()));
+
         return redirect(route('admins.tutorials.index'))->with('message', '保存成功！');
     }
 

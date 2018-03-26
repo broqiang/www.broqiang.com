@@ -16,7 +16,7 @@
         </div>
         
         <div class="card-body p-4 text-muted">
-            <form method="POST" action="{{ isset($tutorial) ? route('admins.tutorials.update', $tutorial->id) : route('admins.tutorials.store') }}">
+            <form method="POST" action="{{ isset($tutorial) ? route('admins.tutorials.update', $tutorial->slug) : route('admins.tutorials.store') }}">
                 @csrf
 
                 @isset($tutorial)
@@ -75,7 +75,18 @@
                         </span>
                     @endif
                 </div>
-                        
+
+                <div class="form-group">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="auth1" name="auth" class="custom-control-input" value="0" {{ isset($tutorial) ? ($tutorial->auth ?: 'checked') : 'checked' }}>
+                        <label class="custom-control-label" for="auth1">私有（指定权限的用户可以见）</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="auth2" name="auth" class="custom-control-input" value="1" {{ isset($tutorial) ? ($tutorial->auth ? 'checked' : '') : '' }}>
+                        <label class="custom-control-label" for="auth2">公开（所有人可见）</label>
+                    </div>
+                </div>
+
                 <div class="form-group my-3">
                     <button type="submit" class="btn btn-success pull-right">
                         <i class="fa fa-save mr-2"></i>保存
