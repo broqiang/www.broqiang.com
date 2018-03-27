@@ -27,7 +27,7 @@
                                 </div>
                                 <hr>
                                 <div class="card-text">
-                                    {{ $tutorial->description }}
+                                    {!! $tutorial->stringToMarkdown($tutorial->description) !!}
                                 </div>
                             </div>
                         </div>

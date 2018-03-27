@@ -101,7 +101,7 @@
             @else
                 <div class="card text-muted">
                     <div class="card-body bg-transparent">
-                            {{ $tutorial->description }}
+                            {!! $tutorial->description !!}
                             <hr>
                             点击左侧的 <i class="fa fa-plus text-success" ></i> 号按钮添加新的文章，点击文章标题可以编辑文章
                     </div>

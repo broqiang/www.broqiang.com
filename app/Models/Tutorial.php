@@ -4,10 +4,13 @@ namespace App\Models;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Traits\Markdown;
 use Illuminate\Database\Eloquent\Model;
 
 class Tutorial extends Model
 {
+    use Markdown;
+
     protected $fillable = ['title', 'description', 'sort', 'category_id', 'title_page', 'slug', 'auth'];
 
     protected $exceptFilterData = ['auth'];

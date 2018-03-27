@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Traits\Markdown;
 use App\Models\Tutorial;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
+    use Markdown;
+    
     protected $fillable = ['title', 'body', 'slug', 'pid', 'user_id', 'tutorial_id', 'sort'];
 
     public function children_articles()

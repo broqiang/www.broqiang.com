@@ -25,7 +25,7 @@ class TutorialsController extends Controller
     {
         $this->authorize('isMember', $tutorial);
 
-        $tutorial->allArticles();
+        $tutorial->allArticles()->convertMarkdownToHtml('description');
 
         return view('tutorials.show', compact('tutorial'));
     }
@@ -40,7 +40,9 @@ class TutorialsController extends Controller
         }
 
         $tutorial->allArticles();
-        $article->body = (new Markdown())->convertMarkdownToHtml($article->body);
+        
+        $article->convertMarkdownToHtml('body');
+
         return view('tutorials.show', compact(['tutorial', 'article']));
     }
 }

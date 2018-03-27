@@ -60,7 +60,7 @@
                 <div class="card text-muted">
                     <div class="card-body bg-transparent">
                         <p class="card-text">
-                            {{ $tutorial->description }}
+                            {!! $tutorial->description !!}
                         </p>
                     </div>
                 </div>
