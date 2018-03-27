@@ -25,3 +25,8 @@ Route::resource('notifications', 'NotificationsController', ['only' => ['index']
 
 /** 搜索路由 */
 Route::post('search/posts', 'SearchController@posts')->name('search.posts');
+
+/** 教程 */
+Route::resource('tutorials', 'TutorialsController', ['only' => ['index', 'show']]);
+
+Route::get('tutorials/{tutorial}/{article}/{slug?}','TutorialsController@article')->name('tutorials.article');

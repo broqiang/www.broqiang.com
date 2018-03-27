@@ -162,7 +162,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         // 自定义的 Provider
-        App\Providers\PostProvider::class,
+        App\Providers\BladeProvider::class,
         App\Providers\ObserverProvider::class,
     ],
 

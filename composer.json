@@ -9,12 +9,15 @@
         "broqiang/laravel-image": "1.0.*",
         "broqiang/laravel-markdown": "1.0.*",
         "fideloper/proxy": "~4.0",
+        "guzzlehttp/guzzle": "~6.3",
         "hieu-le/active": "~3.5",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "~1.0",
-        "mews/captcha": "~2.0"
+        "mews/captcha": "~2.0",
+        "overtrue/pinyin": "~3.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.1",
         "broqiang/laravel-lang": "^1.0",
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
