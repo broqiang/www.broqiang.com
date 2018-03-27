@@ -6,6 +6,8 @@ Laravel 5.6 开发的单人博客，1.0 版本完成。
 
 后续基本不会再对此分支进行修改，也不会向主分支中合并代码，新功能添加到 1.1 版本中。
 
+如果只是想使用最基本的博客功能，请 拉取 1.0 分支。
+
 ## 预览效果
 
 #### 首页
@@ -62,7 +64,7 @@ composer create-project broqiang/laravel-blog broqiang.com "1.0.*"
 __方法二 通过 github 直接下载代码__
 
 ```bash
-git clone https://github.com/BroQiang/www.broqiang.com.git
+git clone -b 1.0 https://github.com/BroQiang/www.broqiang.com.git
 
 ```
 
