@@ -1,24 +1,8 @@
 # Bro Qiang 博客
 
-Laravel 5.6 开发的单人博客，1.0 版本完成。
+## 版本说明
 
-此版本框架是用的 Laravel 5.6，前端使用的是 Bootstrap 4.0，基本全部由 PHP 实现，除了 插件自带的特效，只用了极少的 js，定位是简单，快速完成功能。
-
-后续基本不会再对此分支进行修改，也不会向主分支中合并代码，新功能添加到 1.1 版本中。
-
-## 预览效果
-
-#### 首页
-
-![](https://image.broqiang.com/M837cv6tPs5nJFVLYxXAL59rGfdhb4.png)
-
-#### 文章详情
-
-![](https://image.broqiang.com/6zgPZtG9InNcUckkrcdwlgHdZqXAXZ.png)
-
-#### 后台
-
-![](https://image.broqiang.com/cNQ7ofMc7dT3l7VtQFfyFYA53C4ukF.png)
+1.1 版本，添加了教程文章的模块，如果只是用最简单的博客功能，请选择 1.0 分支。
 
 ## 环境
 
@@ -56,13 +40,15 @@ __方法一 直接通过 composer 安装__
 > - 此方法安装无法更新，有新的版本只能重新安装
 
 ```bash
-composer create-project broqiang/laravel-blog broqiang.com "1.0.*"
+composer create-project broqiang/laravel-blog broqiang.com "1.1.*" 
 ```
 
 __方法二 通过 github 直接下载代码__
 
 ```bash
-git clone -b 1.0 https://github.com/BroQiang/www.broqiang.com.git
+
+git clone -b 1.1 https://github.com/BroQiang/www.broqiang.com.git
+
 
 ```
 
@@ -114,6 +100,19 @@ MAIL_FROM_NAME=
 ADMIN_USER_NAME=
 # 配置管理员邮箱
 ADMIN_USER_EMAIL=
+
+# 七牛云相关配置，如果图片上传到七牛云的话需要配置这里
+QINIU_ACCESS_KEY=
+QINIU_SECRET_KEY=
+QINIU_BUCKET=
+QINIU_DOMAIN=
+
+# 百度翻译用到的配置
+BAIDU_TRANSLATE_APPID=
+BAIDU_TRANSLATE_KEY=
+
+# 百度统计的 key
+BAIDU_TONGJI=ceb4dafbd34d908306d9745fc0e0f4e4
 ```
 
 ## 初始化数据

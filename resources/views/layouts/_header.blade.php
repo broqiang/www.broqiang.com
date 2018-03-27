@@ -19,6 +19,9 @@
                         </li>
                     @endforeach
                 @endif
+                <li class="mx-2 {{ active_class(if_route('tutorials.index')) }}">
+                    <a class="nav-link" href="{{ route('tutorials.index') }}">教程</a>
+                </li>
             </ul>
             <!-- Right Side Of Navbar -->
             @include('layouts._header_right')

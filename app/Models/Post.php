@@ -46,7 +46,7 @@ class Post extends Model
                 break;
         }
 
-        return $query->with(['User', 'Skill']);
+        return $query->with(['user', 'skill']);
     }
 
     public function scopeRecentReplied($query)
