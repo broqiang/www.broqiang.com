@@ -4,6 +4,10 @@
 
 1.1 版本，添加了教程文章的模块，如果只是用最简单的博客功能，请选择 1.0 分支。
 
+## 教程
+
+写了一个用来安装本博客的教程，请参考： [https://broqiang.com/tutorials/blog-manual](https://broqiang.com/tutorials/blog-manual)
+
 ## 环境
 
 此项目是在 LNMP 环境下开发的，理论上也支持 LAMP 没有实际测试过
