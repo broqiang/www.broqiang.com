@@ -36,7 +36,7 @@
                                 <tr>
                                     <th scope="row">{{ $tutorial->id }}</th>
                                     <td>
-                                        <a class="text-info" href="{{ route('admins.tutorials.show', $tutorial->slug) }}">
+                                        <a class="text-info" href="{{ route('tutorials.show', $tutorial->slug) }}" target="_blank">
                                             {{ $tutorial->title }}
                                         </a>
                                     </td>
