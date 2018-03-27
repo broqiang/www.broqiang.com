@@ -62,7 +62,7 @@ composer create-project broqiang/laravel-blog broqiang.com "1.0.*"
 __方法二 通过 github 直接下载代码__
 
 ```bash
-git clone https://github.com/BroQiang/www.broqiang.com.git
+git clone -b 1.0 https://github.com/BroQiang/www.broqiang.com.git
 
 ```
 
