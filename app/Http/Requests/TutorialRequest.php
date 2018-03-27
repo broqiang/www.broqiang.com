@@ -26,6 +26,11 @@ class TutorialRequest extends FormRequest
         $validate = [
             'title'       => 'required|string|between:2,20|unique:tutorials',
             'category_id' => 'required|numeric',
+            'slug'  => [
+                'required',
+                'between:4,20',
+                'regex:/^[a-zA-Z0-9_-]+$/u',
+            ],
             'description' => 'string|between:10,255',
             'sort'        => 'nullable|integer|between:1,200',
         ];

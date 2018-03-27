@@ -34,6 +34,20 @@
                         </span>
                     @endif
                 </div>
+
+                <div class="form-group">
+                    <label for="title">slug</label>
+
+                    <input type="text" class="form-control {{ $errors->has('slug') ? ' is-invalid' : '' }}" name="slug" value="{{ old('slug', isset($tutorial) ? $tutorial->slug : '') }}" required placeholder="输入slug">
+
+                    @if ($errors->has('slug'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('slug') }}</strong>
+                        </span>
+                    @endif
+                    <small class="ml-2">用来访问的路径，默认值是由百度翻译自动生成，只能是 <code>字母、数字、破折号（ - ）以及下划线（ _ ）</code></small>
+                </div>
+
                 <div class="form-group">
                     <label for="category_id">分类</label>
 
