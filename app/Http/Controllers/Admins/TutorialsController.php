@@ -99,7 +99,7 @@ class TutorialsController extends Controller
 
     public function upload(Request $request, BroImage $image, Tutorial $tutorial)
     {
-        $res = $image->setConfig(['max_size' => 128, 'upload_type' => 'local'])->validateUpload($request, 'title_page');
+        $res = $image->setConfig(['max_size' => 128])->validateUpload($request, 'title_page');
 
         if ($res) {
             return $res;
