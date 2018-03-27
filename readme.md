@@ -1,6 +1,8 @@
 # Bro Qiang 博客
 
-创建了开发版分支，未完成的版本都放在此分支中
+## 版本说明
+
+1.1 版本，添加了教程文章的模块，如果只是用最简单的博客功能，请选择 1.0 分支。
 
 ## 环境
 
@@ -38,13 +40,13 @@ __方法一 直接通过 composer 安装__
 > - 此方法安装无法更新，有新的版本只能重新安装
 
 ```bash
-composer create-project broqiang/laravel-blog broqiang.com "1.0.*"
+composer create-project broqiang/laravel-blog broqiang.com "1.1.*" 
 ```
 
 __方法二 通过 github 直接下载代码__
 
 ```bash
-git clone https://github.com/BroQiang/www.broqiang.com.git
+git clone -b 1.1 https://github.com/BroQiang/www.broqiang.com.git
 
 ```
 
@@ -96,6 +98,19 @@ MAIL_FROM_NAME=
 ADMIN_USER_NAME=
 # 配置管理员邮箱
 ADMIN_USER_EMAIL=
+
+# 七牛云相关配置，如果图片上传到七牛云的话需要配置这里
+QINIU_ACCESS_KEY=
+QINIU_SECRET_KEY=
+QINIU_BUCKET=
+QINIU_DOMAIN=
+
+# 百度翻译用到的配置
+BAIDU_TRANSLATE_APPID=
+BAIDU_TRANSLATE_KEY=
+
+# 百度统计的 key
+BAIDU_TONGJI=ceb4dafbd34d908306d9745fc0e0f4e4
 ```
 
 ## 初始化数据
