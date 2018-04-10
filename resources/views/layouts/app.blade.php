@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name=”keywords” Content=”PHP,Linux,Laravel,Go,博客,BroQiang″>
     <meta name="description" content="Bro Qiang 博客">
     <meta name="author" content="Bro Qiang<broqiang@qq.com>">
     <link rel="icon" href="{{ asset('favicon.ico') }}">
