@@ -28,7 +28,7 @@ class TutorialRequest extends FormRequest
             'category_id' => 'required|numeric',
             'slug'  => [
                 'required',
-                'between:4,20',
+                'between:4,200',
                 'regex:/^[a-zA-Z0-9_-]+$/u',
             ],
             'description' => 'string|between:10,255',
