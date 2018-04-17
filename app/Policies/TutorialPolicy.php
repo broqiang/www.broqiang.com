@@ -10,7 +10,7 @@ class TutorialPolicy
 {
     use HandlesAuthorization;
 
-    public function before($user, $ability)
+    public function before(User $user, $ability)
     {
         if ($user->isSuperAdmin()) {
             return true;

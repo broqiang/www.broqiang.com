@@ -23,7 +23,9 @@ class TutorialsController extends Controller
 
     public function show(Tutorial $tutorial)
     {
-        $this->authorize('isMember', $tutorial);
+        if(!$tutorial->auth) {
+            $this->authorize('isMember', $tutorial);
+        }
 
         $tutorial->allArticles()->convertMarkdownToHtml('description');
 
