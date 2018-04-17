@@ -1,6 +1,6 @@
 @extends('layouts.app') 
 
-@section('title', '教程列表') 
+@section('title', $tutorial->title) 
 
 @section('css')
 {!! markdown_preview_css() !!}
