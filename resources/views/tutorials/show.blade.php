@@ -9,15 +9,15 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <div class="card text-muted">
+        <div class="col-md-3" >
+            <div class="card text-muted sidebar-follows">
                 <div class="card-header bg-transparent">
                     <h3>
                         <a href="{{ route('tutorials.show', $tutorial->slug) }}" class="text-muted">{{ $tutorial->title }}</a>
                     </h3>
                 </div>
                 @if(count($tutorial->articles))
-                    <div class="card-body">
+                    <div class="card-body scroll-bar" style="overflow-y: auto;">
                         <nav class="nav flex-column">
                             @foreach($tutorial->articles as $tarticle)
                                 <a class="my-2 nav-link font-weight-bold text-truncate 
@@ -72,5 +72,7 @@
 
 @section('script')
 {!! markdown_preview_js() !!}
+<script type="text/javascript">
+</script>
 @stop
 

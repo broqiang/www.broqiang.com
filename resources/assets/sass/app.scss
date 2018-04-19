@@ -15,6 +15,7 @@ body {
     margin-bottom: 60px;
 }
 
+
 /* Header */
 
 .navbar-laravel {
@@ -39,6 +40,7 @@ body {
 
 
 
+
 /* Footer */
 
 .footer {
@@ -53,7 +55,9 @@ body {
     z-index: -1;
 }
 
+
 /* 搜索插件 bootstrap-3-typeahead 样式 */
+
 .typeahead {
     width: 100%;
     background-color: #6c757d;
@@ -67,4 +71,12 @@ body {
             color: #6c757d;
         }
     }
+}
+
+
+/** 侧边栏跟随 */
+.sidebar-follows {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
