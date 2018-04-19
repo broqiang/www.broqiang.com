@@ -16,21 +16,22 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
     @yield('css')
-
 </head>
 
 <body>
     <div id="app" class="{{ route_class() }}-page">
         @include('layouts._header')
-    
+        <header class="bs-docs-nav navbar navbar-static-top" id="top"></header>
+
         <main class="py-4">
             
             @include('common._error')
             @include('common._message')
 
             @yield('content')
+
         </main>
-        
+        <div style="position:fixed; right:50px; bottom:80px;"><a href="#top" class="btn btn-outline-info">返回顶部</a></div>
         @include('layouts._footer')
     </div>
     <!-- Scripts -->
