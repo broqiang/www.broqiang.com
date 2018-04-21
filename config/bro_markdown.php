@@ -13,9 +13,12 @@ return [
 
     // 预览时的 js
     'markdown_preview_js'  => [
-        'https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js',
-        'https://cdn.bootcss.com/highlightjs-line-numbers.js/2.2.0/highlightjs-line-numbers.min.js',
+        'highlight' => 'https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js',
+        // 'line_numbers' => 'https://cdn.bootcss.com/highlightjs-line-numbers.js/2.2.0/highlightjs-line-numbers.min.js',
     ],
+
+     // 预览是否显示行号, 如果启用，一定要加载上面的 highlightjs-line-numbers.min.js
+    'markdown_preview_line_number' => false,
 
     /**
      * 下面是富文本编辑器 editor.md 相关的配置
