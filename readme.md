@@ -6,7 +6,7 @@
 
 ## 教程
 
-写了一个用来安装本博客的教程，请参考： [https://broqiang.com/tutorials/blog-manual](https://broqiang.com/tutorials/blog-manual)
+写了一个用来安装本博客的教程，请参考： [https://php-blog.broqiang.com/tutorials/blog-manual](https://broqiang.com/tutorials/blog-manual)
 
 ## 环境
 
