@@ -8,6 +8,8 @@
 
 写了一个用来安装本博客的教程，请参考： [https://php-blog.broqiang.com/tutorials/blog-manual](https://php-blog.broqiang.com/tutorials/blog-manual)
 
+> 服务器已经到期， 上面的地址不能再访问， 本项目也不再维护，已经将数据库文件放在项目，有兴趣的可以自己本地搭建环境
+
 ## 环境
 
 此项目是在 LNMP 环境下开发的，理论上也支持 LAMP 没有实际测试过
@@ -16,9 +18,9 @@
 
 - Tengine/2.2.1 (nginx/1.8.1) 这个和 Nginx 几乎相同，是个 淘宝二次开发的 Nginx
 
-- Mysql 5.7.21 
+- Mysql 5.7.21
 
-- PHP 7.1.15 
+- PHP 7.1.15
 
 
 ## 安装
@@ -38,13 +40,13 @@ cd /www
 __方法一 直接通过 composer 安装__
 
 > 注意：
-> 
+>
 > - 此方法需要已经配置好了 composer
-> 
+>
 > - 此方法安装无法更新，有新的版本只能重新安装
 
 ```bash
-composer create-project broqiang/laravel-blog broqiang.com "1.1.*" 
+composer create-project broqiang/laravel-blog broqiang.com "1.1.*"
 ```
 
 __方法二 通过 github 直接下载代码__
@@ -141,7 +143,7 @@ create database www_broqiang_com;
 create user www@'127.0.0.1' identified by 'password';
 
 # 给 database 授予权限
-grant all on www_broqiang_com.* to www@'127.0.0.1'; 
+grant all on www_broqiang_com.* to www@'127.0.0.1';
 ```
 
 __初始化数据库__
@@ -200,5 +202,3 @@ __重启 Nginx 服务__
 ```bash
 sudo systemctl restart nginx
 ```
-
-
